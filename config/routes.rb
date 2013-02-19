@@ -9,10 +9,6 @@ SkillShare::Application.routes.draw do
 
   resources :learners
 
-  _____
-
-
-
     # Semi-static page routes
     # match 'home' => 'home#index', :as => :home
     # match 'about' => 'home#about', :as => :about
@@ -23,14 +19,11 @@ SkillShare::Application.routes.draw do
     # Set the root url
     root :to => 'home#index'
 
-  end
-
-
-
-
-
-
-
-
-
 end
+
+
+
+
+
+
+
