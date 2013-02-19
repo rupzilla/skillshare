@@ -1,0 +1,37 @@
+<%= form_for(@sharer) do |f| %>
+  <% if @sharer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sharer.errors.count, "error") %> prohibited this sharer from being saved:</h2>
+
+      <ul>
+      <% @sharer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :credentials %><br />
+    <%= f.text_field :credentials %>
+  </div>
+  <div class="field">
+    <%= f.label :major %><br />
+    <%= f.text_field :major %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

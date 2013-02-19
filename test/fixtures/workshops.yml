@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sharer_id: 1
+  learner_id: 1
+  active: false
+  start_time: 2013-02-18 20:55:26
+  end_time: 2013-02-18 20:55:26
+  date: 2013-02-18
+  size: 1
+  category: MyString
+  location: MyString
+  subdescription: MyString
+  description: MyString
+
+two:
+  sharer_id: 1
+  learner_id: 1
+  active: false
+  start_time: 2013-02-18 20:55:26
+  end_time: 2013-02-18 20:55:26
+  date: 2013-02-18
+  size: 1
+  category: MyString
+  location: MyString
+  subdescription: MyString
+  description: MyString
