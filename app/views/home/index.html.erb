@@ -16,3 +16,12 @@
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 						culpa qui officia deserunt mollit anim id est laborum.</p><br/>
+
+<br>
+<hr>
+
+	<% Learner.all.each do |learner| %>
+		<dt><h4><b><%= learner.first_name %></b></h4></dt>
+			<dd>  <%= learner.last_name  %><br />
+				  <%= learner.interests %><br/>
+	<% end %>

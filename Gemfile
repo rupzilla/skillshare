@@ -7,6 +7,15 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 
+# Gems used only in development
+group :development do
+	gem 'populator3'
+	gem 'faker'
+	gem 'hirb'
+	gem 'wirble'
+end
+
+
 
 # Gems used only for assets and not required
 # in production environments by default.
