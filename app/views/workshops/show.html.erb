@@ -2,13 +2,12 @@
 
 <p>
   <b>Sharer:</b>
-  <%= @workshop.sharer_id %>
+  <%= link_to @workshop.sharer_id, sharer_path(@workshop.sharer_id) %>
+
+
 </p>
 
-<p>
-  <b>Learner:</b>
-  <%= @workshop.learner_id %>
-</p>
+
 
 <p>
   <b>Active:</b>
@@ -56,5 +55,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_workshop_path(@workshop) %> |
+<!-- <%= link_to 'Edit', edit_workshop_path(@workshop) %> | -->
 <%= link_to 'Back', workshops_path %>
