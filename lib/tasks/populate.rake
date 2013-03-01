@@ -77,6 +77,18 @@ namespace :db do
     ms.credentials = "Free Style Painting, Music Engineering, Professional Writing for Dr. Suess "
     ms.major = "CFA"
     ms.save!
+    
+  # Step 2a: Add new Upvote
+	uv = Upvote.new
+	uv.active = true
+	uv.save!
+
+
+	# Step 2a: Add new Subscription
+	ss = Subscription.new
+	ss.active = true
+	ss.workshop_id = ss.id
+	ss.save!
 
 	#Step 3: Make some Workshops
 
@@ -168,18 +180,13 @@ namespace :db do
 	ws6.subdescription = "Looking for a place to learn how make some of the best art you've ever seen.  Come to CFA to learn how to finger paint with the latest styles in the art community.  We will have painting professionals to assist in this workshop.  Hope to see you all there!"
 	ws6.description = "Finger Painting"
 	ws6.save!
-
-	 # Step 2a: Add new Upvote
-	uv = Upvote.new
-	uv.active = true
-	uv.save!
-
-
-		# Step 2a: Add new Subscription
-	ss = Subscription.new
-	ss.active = true
-	ss.workshop_id = ss.id
-	ss.save!
+	
+	#Step 4: Add users
+  uu1 = User.new
+  uu1.active = true
+  uu1.email = "rupa7patel@gmail.com"
+  uu1.password = "skillshare"
+  uu1.save!
 
    end
 end
