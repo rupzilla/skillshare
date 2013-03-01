@@ -2,7 +2,7 @@
 
 <p>
   <b>Sharer:</b>
-  <%= link_to @workshop.sharer_id, sharer_path(@workshop.sharer_id) %>
+  <%= link_to @workshop.sharer.first_name, sharer_path(@workshop.sharer_id) %>
 
 
 </p>

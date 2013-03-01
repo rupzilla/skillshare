@@ -1,6 +1,6 @@
 <h1>Listing workshops</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -21,7 +21,7 @@
   <tr>
 	<td><%= link_to workshop.description, workshop %></td>
 	<td><%= workshop.subdescription %></td>
-    <td><%= link_to "Jimmy Carter", sharer_path(workshop.sharer_id)%></td>
+    <td><%= link_to workshop.sharer.first_name, sharer_path(workshop.sharer_id)%></td>
     <!-- <td><%= workshop.learner_id %></td> -->
     <!-- <td><%= workshop.active %></td> -->
     <td><%= workshop.start_time.strftime("%I:%M%p") %></td>
@@ -38,4 +38,4 @@
 
 <br />
 
-<!-- <%= link_to 'New Workshop', new_workshop_path %> -->
+<%= link_to 'New Workshop', new_workshop_path %> 

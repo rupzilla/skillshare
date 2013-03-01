@@ -11,18 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :sharer_id %><br />
     <%= f.number_field :sharer_id %>
   </div>
-  <div class="field">
-    <%= f.label :learner_id %><br />
-    <%= f.number_field :learner_id %>
-  </div>
+
   <div class="field">
     <%= f.label :active %><br />
     <%= f.check_box :active %>
+  </div> -->
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :description %>
   </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :subdescription %>
+  </div>
+
   <div class="field">
     <%= f.label :start_time %><br />
     <%= f.datetime_select :start_time %>
@@ -47,14 +55,8 @@
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
-  <div class="field">
-    <%= f.label :subdescription %><br />
-    <%= f.text_field :subdescription %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

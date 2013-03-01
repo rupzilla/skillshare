@@ -92,7 +92,6 @@ namespace :db do
 	ws1.subdescription = "We work hard play hard with chemistry. Learn everything you
 	want with chemistry"
 	ws1.description = "Chemistry Lab 1"
-	ws1.sharer_id=
 	ws1.save!
 
 

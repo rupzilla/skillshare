@@ -17,6 +17,7 @@ end
 
 gem "twitter-bootstrap-rails", "~> 2.2.4"
 
+gem "cancan"
 
 
 # Gems used only for assets and not required
