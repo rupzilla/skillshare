@@ -15,6 +15,8 @@ group :development do
 	gem 'wirble'
 end
 
+gem "twitter-bootstrap-rails", "~> 2.2.4"
+
 
 
 # Gems used only for assets and not required
