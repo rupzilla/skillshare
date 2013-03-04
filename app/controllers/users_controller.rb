@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
 	  UserMailer.new_user_msg(@user).deliver
-#	  session[:user_id] = @user.id
+	  session[:user_id] = @user.id
       redirect_to home_path, :notice => "#{@user.learner.first_name} has been added as a user and notified by email."
     else
       render :action => 'new'

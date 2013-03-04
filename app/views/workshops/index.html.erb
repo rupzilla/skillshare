@@ -3,6 +3,7 @@
 
 <table class="table table-striped">
   <tr>
+	<th>Upvotes</th>
     <th>Name</th>
     <th>Description</th>
     <th>Sharer</th>
@@ -12,11 +13,16 @@
     <th>Max. Members</th>
     <th>Category</th>
     <th>Location</th>
+	<th>   </th>
 
   </tr>
 
+
 <% @workshops.each do |workshop| %>
   <tr>
+	<td><%= link_to raw("^"), new_upvote_path, :class => 'btn btn-mini btn btn-warning'%><br>#<br>
+		<%= link_to raw("V"), upvotes_path, :class => 'btn btn-mini btn btn-warning' %>
+		</td>
 	<td><%= link_to workshop.description, workshop %></td>
 	<td><%= workshop.subdescription %></td>
     <td><%= link_to workshop.sharer.proper_name, sharer_path(workshop.sharer_id)%></td>
@@ -28,6 +34,7 @@
     <td><%= workshop.size %></td>
     <td><%= workshop.category %></td>
     <td><%= workshop.location %></td>
+	<td><%= link_to raw("Subscribe"), subscriptions_path, :class => 'btn btn-mini btn btn-info' %></td>
 
 
   </tr>

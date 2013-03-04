@@ -184,9 +184,16 @@ namespace :db do
 	#Step 4: Add users
   uu1 = User.new
   uu1.active = true
-  uu1.email = "rupa7patel@gmail.com"
+  uu1.email = "rupzilla@gmail.com"
   uu1.password = "skillshare"
   uu1.save!
-
+  
+  #Step 5: Add upvotes
+  # uv1 = Upvote.new
+  # uv1.active = true
+  # uv1.workshop = ws6
+  # uv1.user = uu1.id
+  # uv1.save! 
+  
    end
 end

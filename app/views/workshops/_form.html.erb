@@ -22,42 +22,46 @@
   </div> -->
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :description %>
   </div>
 
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_field :subdescription %>
   </div>
-
   <div class="field">
-    <%= f.label :start_time %><br />
+	<%= f.label :date %>
+   	<%= f.date_select :date, :order => [:month, :day, :year], :start_year => Time.now.year-100, :end_year => Time.now.year %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %>
     <%= f.datetime_select :start_time %>
   </div>
   <div class="field">
-    <%= f.label :end_time %><br />
+    <%= f.label :end_time %>
     <%= f.datetime_select :end_time %>
   </div>
+
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br />
+    <%= f.label :size %>
     <%= f.number_field :size %>
   </div>
   <div class="field">
-    <%= f.label :category %><br />
+    <%= f.label :category %>
     <%= f.text_field :category %>
   </div>
   <div class="field">
-    <%= f.label :location %><br />
+    <%= f.label :location %>
     <%= f.text_field :location %>
   </div>
 
 
+
   <div class="actions">
-    <%= f.submit %>
+	  <%= f.submit nil, :class => 'btn btn-small btn-success' %>
+	  <%= link_to 'Cancel', workshops_path, :class => 'btn btn-small' %>
+  
   </div>
 <% end %>
+

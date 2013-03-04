@@ -1,59 +1,76 @@
+<div class="span8">
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Sharer:</b>
-  <%= link_to @workshop.sharer.first_name, sharer_path(@workshop.sharer_id) %>
-
-
+  <h3><%= @workshop.description %></h3>
 </p>
+<hr>
+<p>
+	<p>
+	  <b>Category:</b>
+	  <%= @workshop.category %>
+	</p>
 
+	
+  <i>
+  <%= @workshop.subdescription %></i>
+</p>
+<hr>
+
+<h4>Tutor Information</h4>
 
 
 <p>
-  <b>Active:</b>
-  <%= @workshop.active %>
+  <b>Tutor:</b>
+  <%= link_to @workshop.sharer.proper_name, sharer_path(@workshop.sharer_id) %></p>
+
+<p>
+  <b>Credentials:</b>
+  <%= link_to @workshop.sharer.credentials, sharer_path(@workshop.sharer_id) %>
 </p>
 
 <p>
-  <b>Start time:</b>
-  <%= @workshop.start_time %>
+  <b> Major:</b>
+  <%= link_to @workshop.sharer.major, sharer_path(@workshop.sharer_id) %>
 </p>
+<hr>
 
-<p>
-  <b>End time:</b>
-  <%= @workshop.end_time %>
-</p>
+<h4>Workshop Information</h4>
 
 <p>
   <b>Date:</b>
-  <%= @workshop.date %>
-</p>
+	<%= @workshop.date.strftime("%m/%d") %></p>
+<p>
+  <b>Time:</b>
+	<%= @workshop.start_time.strftime("%I:%M%p") %>- 
+	<%= @workshop.end_time.strftime("%I:%M%p") %></p>
+
+
 
 <p>
-  <b>Size:</b>
+  <b>Maximum Class Size:</b>
   <%= @workshop.size %>
 </p>
 
-<p>
-  <b>Category:</b>
-  <%= @workshop.category %>
-</p>
 
 <p>
   <b>Location:</b>
   <%= @workshop.location %>
 </p>
 
-<p>
-  <b>Subdescription:</b>
-  <%= @workshop.subdescription %>
-</p>
+
 
 <p>
-  <b>Description:</b>
-  <%= @workshop.description %>
+  <b>Status of Workshop:</b>
+   <%= @workshop.active ? "Available to Sign Up" : "Not Available" %>
 </p>
 
+<hr>
 
-<!-- <%= link_to 'Edit', edit_workshop_path(@workshop) %> | -->
-<%= link_to 'Back', workshops_path %>
+<%= link_to 'Edit', edit_workshop_path(@workshop), :class => 'btn btn-mini' %> |
+<%= link_to 'Back', workshops_path, :class => 'btn btn-mini' %>
+<br>
+<br>
+</div>
+
