@@ -1,3 +1,7 @@
+
+
+
+
 <%= form_for(@workshop) do |f| %>
   <% if @workshop.errors.any? %>
     <div id="error_explanation">
@@ -11,16 +15,9 @@
     </div>
   <% end %>
 
-  <!-- <div class="field">
-    <%= f.label :sharer_id %><br />
-    <%= f.number_field :sharer_id %>
-  </div>
 
-  <div class="field">
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </div> -->
-
+	<%= link_to raw("<i class='icon-plus'></i> Assign New"), new_sharer_path, :class => 'btn btn-mini' %>
+	
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :description %>

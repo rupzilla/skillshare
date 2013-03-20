@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
     # Validations
     validates_uniqueness_of :email
     validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
+    
+    #functions
+
+  
   end

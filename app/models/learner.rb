@@ -4,4 +4,9 @@ class Learner < ActiveRecord::Base
   # Relationships
   has_one :user
   
+  # Other methods
+  def proper_name
+    "#{first_name} #{last_name}"
+  end
+  
 end
