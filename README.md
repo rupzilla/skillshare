@@ -1,6 +1,7 @@
-skillshare
+<h1> Skillshare v1.0.1 </h1>
 ==========
 
+<hr>
 <h2> Mac Users: </h2>
  
 <h4> Install Ruby </h4>
@@ -47,7 +48,7 @@ skillshare
 8.     Type “rails s”
 9.     Go to your browser and navigate to http://localhost:3000
  
-
+<hr>
 <h2>  Windows Users: </h2>
  
 <h4>Install Ruby</h4>
