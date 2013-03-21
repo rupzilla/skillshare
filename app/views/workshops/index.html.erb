@@ -19,18 +19,14 @@
 
 <% @workshops.each do |workshop| %>
   <tr>
-<<<<<<< HEAD
-	<td><br> <%= workshop.upvotes.size %><br>
+
+	<td><center><b>
+		<%= workshop.upvotes.size %>
+		
 		<%= render :partial => "upvote_form", :locals => {:workshop => workshop} %>
-		<%#= render :partial => "downvote_form", :locals => {:workshop => workshop} %>
-=======
-	<td>
-		<%= link_to raw("<i class='icon-chevron-up'></i> "), upvotes_path, :class => 'btn btn-mini btn btn-primary' %>
-		<br> # <br>
-		<%= link_to raw("<i class='icon-chevron-down'></i> "), upvotes_path, :class => 'btn btn-mini btn btn-primary' %>
->>>>>>> 420519b8b254c3c049f86ed4973784672dbf5adc
-		</td>
-	<td><%= link_to workshop.description, workshop %></td>
+		<%#= render :partial => "downvote_form", :locals => {:workshop => workshop} %> </b></center></td>
+
+	<!-- <td><%= link_to workshop.description, workshop %></td> -->
     <td><%= workshop.category %></td>
     <td><%= link_to workshop.sharer.proper_name, sharer_path(workshop.sharer_id)%></td>
     <!-- <td><%= workshop.learner_id %></td> -->

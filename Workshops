@@ -1,0 +1,33 @@
+Loading development environment (Rails 3.2.8)
+loading...
+>> 
+?>   ^C
+>> ç
+NameError: undefined local variable or method `ç' for main:Object
+	from (irb):2
+	from /Users/Rupa/.rvm/gems/ruby-1.9.3-p0/gems/railties-3.2.8/lib/rails/commands/console.rb:47:in `start'
+	from /Users/Rupa/.rvm/gems/ruby-1.9.3-p0/gems/railties-3.2.8/lib/rails/commands/console.rb:8:in `start'
+	from /Users/Rupa/.rvm/gems/ruby-1.9.3-p0/gems/railties-3.2.8/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+>> 
+?>   
+?>   
+?>   
+?>   
+?>   ^C
+>> 
+?>   
+?>   
+?>   
+?>   ©^C
+>> 
+^C
+>> 
+?>   
+?>   
+?>   çcc
+^C
+>> 
+?>   
+>> 

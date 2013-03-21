@@ -3,7 +3,7 @@ class WorkshopsController < ApplicationController
   # GET /workshops.json
   def index
     @workshops = Workshop.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @workshops }

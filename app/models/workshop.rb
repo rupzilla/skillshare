@@ -10,6 +10,10 @@ class Workshop < ActiveRecord::Base
   # Scope
  # scope :upvotes_decreasing,
   #  select(upvotes.id, count())
+  # scope :by_upvotes, select("count(workshop_id) AS upvotes_count").joins(:upvotes).group(:workshop_id).order("upvotes_count DESC")
+  
+  
+
   
 
 end
