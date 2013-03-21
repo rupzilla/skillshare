@@ -2,7 +2,7 @@ class WorkshopsController < ApplicationController
   # GET /workshops
   # GET /workshops.json
   def index
-    @workshops = Workshop.all 
+    @workshops = Workshop.all
 
     respond_to do |format|
       format.html # index.html.erb
