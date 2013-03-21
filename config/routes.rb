@@ -13,7 +13,7 @@ SkillShare::Application.routes.draw do
 
   resources :subscriptions
 
-  resources :upvotes
+  resources :upvotes 
 
   resources :sharers
 
@@ -28,6 +28,9 @@ SkillShare::Application.routes.draw do
 
     # Set the root url
     root :to => 'home#index'
+    
+    
+
 
 end
 

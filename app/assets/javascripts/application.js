@@ -13,3 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+// Flash fade
+	$(function() {
+	   $('.alert-success').fadeIn('normal', function() {
+	      $(this).delay(3700).fadeOut();
+	   });
+	});
+
+	$(function() {
+	   $('.alert-error').fadeIn('normal', function() {
+	      $(this).delay(3700).fadeOut();
+	   });
+	});
+
+
+/ Autosubmit the quick registration form on the sections#show view
+	$(function() {
+		$('#upvote_workshop_id').click(function()
+		 {
+		     $('#new_upvote').submit();
+		 });
+	});

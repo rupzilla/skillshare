@@ -41,7 +41,7 @@ class WorkshopsController < ApplicationController
   # POST /workshops.json
   def create
     @workshop = Workshop.new(params[:workshop])
-
+    
     respond_to do |format|
       if @workshop.save
         format.html { redirect_to @workshop, notice: 'Workshop was successfully created.' }

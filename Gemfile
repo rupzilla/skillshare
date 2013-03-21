@@ -13,6 +13,8 @@ group :development do
 	gem 'faker'
 	gem 'hirb'
 	gem 'wirble'
+	gem 'quiet_assets'
+	gem 'better_errors'
 end
 
 gem "twitter-bootstrap-rails", "~> 2.2.4"
