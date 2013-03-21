@@ -5,6 +5,7 @@ class Workshop < ActiveRecord::Base
   has_many :upvotes
   has_many :subscriptions
   belongs_to :sharer
+  
 
   # Scope
  # scope :upvotes_decreasing,

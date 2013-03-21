@@ -21,6 +21,7 @@ SkillShare::Application.routes.draw do
 
     # Semi-static page routes
     match 'home' => 'home#index', :as => :home
+    match 'faq' => 'home#faq', :as => :faq
 
 
 

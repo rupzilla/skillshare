@@ -36,6 +36,8 @@ class WorkshopsController < ApplicationController
   def edit
     @workshop = Workshop.find(params[:id])
   end
+  
+
 
   # POST /workshops
   # POST /workshops.json
