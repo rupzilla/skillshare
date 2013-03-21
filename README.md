@@ -14,16 +14,16 @@
  
 <h6> If you do not have RubyGems: </h6>
 
-<ol>
+<ul>
 <li> Go to http://rubygems.org/pages/download </li>
 <li> Download the latest version by selecting one of the download options </li>
-</ol>
+</ul>
 
 <h6> If you already have RubyGems:</h6>
-<ol>
+<ul>
 <li> To get the latest Ruby Gems use the “gem update --system” command </li>
 <li>  You may need to be in the administrator or root directory </li>
-</ol>
+</ul>
 
 <h4> Install Rails </h4>
 <ol>
@@ -47,7 +47,6 @@
 8.     Type “rails s”
 9.     Go to your browser and navigate to http://localhost:3000
  
-<hr>
 <h2>  Windows Users: </h2>
  
 <h4>Install Ruby</h4>
@@ -58,12 +57,16 @@
  
 <h4>Install RubyGems</h4>
  
-1.     If you do not have RubyGems:
-a.     Go to http://rubygems.org/pages/download
-b.     Download the latest version by selecting one of the download options
-2.     If you already have RubyGems:
-a.     To get the latest Ruby Gems use the “gem update --system” command
-b.     You may need to be in the administrator or root directory
+<h6>   If you do not have RubyGems:</h6> 
+<ul>
+<li>   Go to http://rubygems.org/pages/download </li>
+<li>    Download the latest version by selecting one of the download options </li>
+
+<h6>     If you already have RubyGems:/<h6> 
+<ul>
+<li>     To get the latest Ruby Gems use the “gem update --system” command </li>
+<li>     You may need to be in the administrator or root directory </li>
+</ul>
  
 <h4>Install Rails</h4>
  
