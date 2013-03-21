@@ -7,11 +7,11 @@
         <span class="icon-bar"></span>
       </a>
 			<%# link_to "Home", home_path, :class => "brand" %>
-      <a class="brand" href="home#index">SkillShare Platform</a>
       <div class="nav-collapse">
         <ul class="nav">
+		  <li><%= link_to "Home", "home#index"%></li>
 		  <li><%= link_to "Workshops", workshops_path %></li>
-		  <li><%= link_to "FAQ", "#" %></li>
+		  <li><%= link_to "FAQ", faq_path %></li>
 
 
         </ul>
