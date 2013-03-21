@@ -61,6 +61,7 @@
 <ul>
 <li>   Go to http://rubygems.org/pages/download </li>
 <li>    Download the latest version by selecting one of the download options </li>
+</ul>
 
 <h6>     If you already have RubyGems:/<h6> 
 <ul>
