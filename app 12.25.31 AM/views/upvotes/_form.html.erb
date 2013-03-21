@@ -1,0 +1,19 @@
+<%= simple_form_for @upvote, :html => { :class => 'form-horizontal' } do |f| %>
+  <!-- <fieldset>
+    <legend><%#= controller.action_name.capitalize %> Upvote</legend>
+		
+		<%# f.input :first_name %>
+		<%# f.input :last_name %>
+		<%# f.input :ssn, :label => "SSN" %>
+		<%# f.input :date_of_birth, :label => "Date of Birth", :as => :string, :input_html => {:class => "datepicker" }, :hint => "You can enter the date in the format of year/month/day (Ex: 1985/03/21) " %>
+		<%# f.input :date_of_birth, :label => "Date of Birth", :as => :date, :start_year => Date.today.year - 13, :end_year => Date.today.year - 75, :order => [:month, :day, :year], :include_blank => true %>
+		<%# f.input :phone %>
+		<%# f.input :role, :collection => Employee::ROLES_LIST unless !can? :manage, @employee %>
+		<%# (f.input :active) unless !can? :manage, @employee %>
+		
+		
+
+  </fieldset> -->
+
+	<%= f.input :my_vote, :class => 'btn btn-mini btn btn-warning' %>
+<% end %>
