@@ -1,7 +1,6 @@
 <h1> Skillshare v1.0.1 </h1>
 ==========
 
-<hr>
 <h2> Mac Users: </h2>
  
 <h4> Install Ruby </h4>
