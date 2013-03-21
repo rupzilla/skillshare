@@ -1,2 +1,0 @@
-module SharersHelper
-end
