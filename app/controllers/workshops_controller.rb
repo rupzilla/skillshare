@@ -1,6 +1,7 @@
 class WorkshopsController < ApplicationController
   # GET /workshops
   # GET /workshops.json
+  before_filter :check_login
   def index
     @workshops = Workshop.all 
 
