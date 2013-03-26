@@ -13,15 +13,25 @@ namespace :db do
     require 'faker'
 
     # Step 0: clear any old data in the db
-    [Learner, Sharer, Upvote, Subscription, Workshop].each(&:delete_all)
+    [Learner, Sharer, Upvote, Subscription, Workshop, User].each(&:delete_all)
+
+	
+  	#Step 0.5: Add users
+    uu1 = User.new
+    uu1.active = true
+    uu1.email = "rupzilla@gmail.com"
+    uu1.password = "skillshare"
+    uu1.save!
+
 
     # Step 1: Add some Learners
     el = Learner.new
+    el.user_id= uu1.id
     el.first_name = "Emmanuel"
     el.last_name = "Ruiz"
     el.interests = "Adobe After Effects, Maya 3d Applications"
     el.major = "Information Systems"
-
+    el.save!
 
 
     bl = Learner.new
@@ -37,7 +47,7 @@ namespace :db do
     jl.last_name = "Song"
     jl.interests = "Adobe After Effects, Microsoft Office Suite"
     jl.major = "Information Systems"
-
+    jl.save!
 
 
     rl = Learner.new
@@ -180,13 +190,7 @@ namespace :db do
 	ws6.subdescription = "Looking for a place to learn how make some of the best art you've ever seen.  Come to CFA to learn how to finger paint with the latest styles in the art community.  We will have painting professionals to assist in this workshop.  Hope to see you all there!"
 	ws6.description = "Finger Painting"
 	ws6.save!
-	
-	#Step 4: Add users
-  uu1 = User.new
-  uu1.active = true
-  uu1.email = "rupzilla@gmail.com"
-  uu1.password = "skillshare"
-  uu1.save!
+
   
   #Step 5: Add upvotes
   # uv1 = Upvote.new

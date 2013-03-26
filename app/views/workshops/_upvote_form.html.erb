@@ -1,0 +1,5 @@
+<%= form_tag '/upvotes' do  %>
+	<%= hidden_field_tag 'workshop_id', workshop.id %>
+<%= button_tag raw("<i class='icon-chevron-up'></i> ") , :class => 'btn btn-mini btn btn-warning' %>	
+
+<% end %>

@@ -20,9 +20,10 @@
 <% @workshops.each do |workshop| %>
   <tr>
 	<td>
-		<%= link_to raw("<i class='icon-chevron-up'></i> "), upvotes_path, :class => 'btn btn-mini btn btn-primary' %>
-		<br> #<br>
-		<%= link_to raw("<i class='icon-chevron-down'></i> "), upvotes_path, :class => 'btn btn-mini btn btn-primary' %>
+		<%= workshop.upvotes.size %>
+
+		               <%= render :partial => "upvote_form", :locals => {:workshop => workshop} %>
+		               <%#= render :partial => "downvote_form", :locals => {:workshop => workshop} %> </b></center></td>
 		</td>
 	<td><%= link_to workshop.description, workshop %></td>
     <td><%= workshop.category %></td>

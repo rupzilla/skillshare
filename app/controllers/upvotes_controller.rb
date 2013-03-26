@@ -40,18 +40,21 @@ class UpvotesController < ApplicationController
   # POST /upvotes
   # POST /upvotes.json
   def create
-    @upvote = Upvote.new(params[:upvote])
+     @upvote = Upvote.new(params[:upvote])
+     @upvote.active = true
+     @upvote.workshop_id = params[:workshop_id]
+     @upvote.user_id = User.first.id
 
-    respond_to do |format|
-      if @upvote.save
-        format.html { redirect_to @upvote, notice: 'Upvote was successfully created.' }
-        format.json { render json: @upvote, status: :created, location: @upvote }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @upvote.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+     respond_to do |format|
+       if @upvote.save
+         format.html { redirect_to workshops_path, notice: 'Upvote was successfully created.' }
+         format.json { render json: @upvote, status: :created, location: @upvote }
+       else
+         format.html { render action: "new" }
+         format.json { render json: @upvote.errors, status: :unprocessable_entity }
+       end
+     end
+   end
 
   # PUT /upvotes/1
   # PUT /upvotes/1.json
