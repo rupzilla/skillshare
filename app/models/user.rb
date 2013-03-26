@@ -3,13 +3,15 @@ class User < ActiveRecord::Base
     has_secure_password
 
     # Relationship
-    belongs_to :learner
 
     # Validations
     validates_uniqueness_of :email
     validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
     
-    #functions
+    # Other methods
+     def proper_name
+       "#{first_name} #{last_name}"
+     end
 
   
   end

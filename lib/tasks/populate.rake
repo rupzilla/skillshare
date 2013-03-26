@@ -16,25 +16,33 @@ namespace :db do
     [Learner, Sharer, Upvote, Subscription, Workshop, User].each(&:delete_all)
 
 	
-  	#Step 0.5: Add users
-    uu1 = User.new
-    uu1.active = true
-    uu1.email = "rupzilla@gmail.com"
-    uu1.password = "skillshare"
-    uu1.save!
+  	#Step 1: Add users
+
+    ru = User.new
+    ru.active = true
+    ru.email = "rupzilla@gmail.com"
+    ru.password = "skillshare"
+    ru.first_name = "Rupa"
+    ru.last_name = "Patel"
+    ru.interests = "Life Coach, Boss"
+    ru.major = "Information Systems"
+    ru.save!
 
 
-    # Step 1: Add some Learners
-    el = Learner.new
-    el.user_id= uu1.id
+    el = User.new
+    el.active = true
+    el.email = "eman@gmail.com"
+    el.password = "skillshare"
     el.first_name = "Emmanuel"
     el.last_name = "Ruiz"
     el.interests = "Adobe After Effects, Maya 3d Applications"
     el.major = "Information Systems"
     el.save!
 
-
-    bl = Learner.new
+    bl = User.new
+    bl.active = true
+    bl.email = "barnik@gmail.com"
+    bl.password = "skillshare"
     bl.first_name = "Barnik"
     bl.last_name = "Saha"
     bl.interests = "Adobe Photoshop, Adobe Illustrator"
@@ -42,7 +50,10 @@ namespace :db do
     bl.save!
 
 
-    jl = Learner.new
+    jl = User.new
+    jl.active = true
+    jl.email = "juhee@gmail.com"
+    jl.password = "skillshare"
     jl.first_name = "Juhee"
     jl.last_name = "Song"
     jl.interests = "Adobe After Effects, Microsoft Office Suite"
@@ -50,7 +61,10 @@ namespace :db do
     jl.save!
 
 
-    rl = Learner.new
+    rl = User.new
+    rl.active = true
+    rl.email = "ryan@gmail.com"
+    rl.password = "skillshare"
     rl.first_name = "Ryan"
     rl.last_name = "Rowe"
     rl.interests = "iPhone Development, Chemical extraction"
