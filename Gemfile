@@ -15,6 +15,12 @@ group :development do
 	gem 'wirble'
 end
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
 gem "twitter-bootstrap-rails", "~> 2.2.4"
 
 gem "cancan"
