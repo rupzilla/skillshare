@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render :partial => "partials/nav_bar"%>
+	<%= render :partial => "partials/nav_bar" unless !logged_in?%>
 
 <%= yield %>
 
