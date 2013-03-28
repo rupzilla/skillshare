@@ -6,5 +6,14 @@ class Workshop < ActiveRecord::Base
   has_many :subscriptions
   belongs_to :sharer
   
+  # Scopes
+  
+    
+  # SELECT COUNT(*) AS "COUNT" FROM WORKSHOPS W LEFT JOIN UPVOTES U WHERE w.id= u.workshop_id GROUP BY (workshop_id) HAVING (COUNT(*)>=0) ORDER BY "COUNT" DESC;
+  
+  # SELECT COUNT(*) AS "COUNT" FROM UPVOTES U LEFT JOIN WORKSHOPS W ON w.id= u.workshop_id GROUP BY (w.id) ORDER BY "COUNT" DESC;
+  
+  
+  # scope :by_upvotes, joins(:upvote).where("workshop.id = upvote.workshop_id").having("count(*) >= 0").group("workshop_id").select("count.*")  
 
 end
