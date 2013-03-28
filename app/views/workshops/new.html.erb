@@ -2,20 +2,6 @@
 <h2>New Workshop</h2>
 <hr>
 
-	<!-- User who isnt a sharer -->
-	<% if current_user.sharer.nil? %>
-		<%= render :partial => "no_sharer" %>
-	
-	<!-- User has a workshop already -->
-	<% elsif !current_user.sharer.workshop.nil? %>
-		<%= render :partial => "sorry" %>
-	<% end %>
-	
-	<!-- User who is a sharer, but has no workshop -->
-	<% else %>
-	<%= render 'form' %>
-	
-	
 <font color="#FF0066"><h3> [User who isn't a sharer]</h3></font>
 <%= render :partial => "no_sharer" %>
 
