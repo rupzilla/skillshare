@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
     has_secure_password
 
     # Relationship
+    has_many :subscriptions
+    has_many :workshops, :through => :subscriptions
 
     # Validations
     validates_uniqueness_of :email

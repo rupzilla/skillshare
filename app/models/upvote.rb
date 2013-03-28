@@ -7,6 +7,7 @@ class Upvote < ActiveRecord::Base
   
   # Scope
   # scope :for_workshop, lambda {|workshop_id| where("upvotes.workshop_id = ?", workshop_id) }
+ 
   
   
 end

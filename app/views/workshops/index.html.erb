@@ -21,9 +21,8 @@
   <tr>
 	<td>
 		<%= workshop.upvotes.size %>
-
-		               <%= render :partial => "upvote_form", :locals => {:workshop => workshop} %>
-		               <%#= render :partial => "downvote_form", :locals => {:workshop => workshop} %> </b></center></td>
+		<%= render :partial => "upvote_form", :locals => {:workshop => workshop} %>
+		               <%#= render :partial => "downvote_form", :locals => {:workshop => workshop} %> </b></center>
 		</td>
 	<td><%= link_to workshop.description, workshop %></td>
     <td><%= workshop.category %></td>
@@ -35,7 +34,10 @@
     <td><%= workshop.date.strftime("%m/%d") %></td>
     <td><%= workshop.size %></td>
     <td><%= workshop.location %></td>
-	<td><%= link_to raw("Subscribe"), subscriptions_path, :class => 'btn btn-mini btn btn-info' %></td>
+	<td><%#= link_to raw("Subscribe"), subscriptions_path, :class => 'btn btn-mini btn btn-info' %>
+	<%= workshop.subscriptions.size %>	
+	<%= render :partial => "subscribe_form", :locals => {:workshop => workshop} %>
+	</td></td>
 
 
   </tr>
