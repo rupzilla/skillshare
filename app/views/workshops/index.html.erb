@@ -10,6 +10,7 @@
     <th>Start time</th>
     <th>End time</th>
     <th>Date</th>
+	<th>Members Enrolled </th>
     <th>Max. Members</th>
     <th>Location</th>
 	<th>   </th>
@@ -32,10 +33,10 @@
     <td><%= workshop.start_time.strftime("%I:%M%p") %></td>
     <td><%= workshop.end_time.strftime("%I:%M%p") %></td>
     <td><%= workshop.date.strftime("%m/%d") %></td>
+	<td><%= workshop.subscriptions.size %>	</td>
     <td><%= workshop.size %></td>
     <td><%= workshop.location %></td>
 	<td><%#= link_to raw("Subscribe"), subscriptions_path, :class => 'btn btn-mini btn btn-info' %>
-	<%= workshop.subscriptions.size %>	
 	<%= render :partial => "subscribe_form", :locals => {:workshop => workshop} %>
 	</td></td>
 
