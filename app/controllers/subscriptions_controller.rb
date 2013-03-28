@@ -40,17 +40,20 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions
   # POST /subscriptions.json
   def create
-    @subscription = Subscription.new(params[:subscription])
+     @subscription = Subscription.new(params[:subscription])
+     @subscription.active = true
+     @subscription.workshop_id = params[:workshop_id]
+     @subscription.user_id = User.first.id
 
-    respond_to do |format|
-      if @subscription.save
-        format.html { redirect_to @subscription, notice: 'Subscription was successfully created.' }
-        format.json { render json: @subscription, status: :created, location: @subscription }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @subscription.errors, status: :unprocessable_entity }
+     respond_to do |format|
+        if @subscription.save
+          format.html { redirect_to workshops_path, notice: 'Subscription was successfully created.' }
+          format.json { render json: @subscription, status: :created, location: @subscription }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @subscription.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
 
   # PUT /subscriptions/1
