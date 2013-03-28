@@ -4,7 +4,15 @@ class Workshop < ActiveRecord::Base
   # Relationships
   has_many :upvotes
   has_many :subscriptions
+  has_many :users, :through => :subscriptions
   belongs_to :sharer
+  
+  # scope :workshop_order,
+  #  :select => "workshops.* as count",
+  #  :joins => :upvotes,
+  # 
+  #  :group => "workshop_id",
+  #  :order => 'workshop.upvote.count desc'
   
 
 end

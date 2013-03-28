@@ -4,7 +4,16 @@ class HomeController < ApplicationController
   before_filter :check_login
   def index
     @user = current_user
+    @subscription = Subscription.all
+    @workshops = Workshop.all
+	end
+	
+	def dashboard
+	  @user = current_user
+    @subscription = current_user.subscriptions
+    @workshops = current_user.workshops
 	end
 
+  
 
 end

@@ -43,7 +43,7 @@ class SubscriptionsController < ApplicationController
      @subscription = Subscription.new(params[:subscription])
      @subscription.active = true
      @subscription.workshop_id = params[:workshop_id]
-     @subscription.user_id = User.first.id
+     @subscription.user_id = current_user.id
 
      respond_to do |format|
         if @subscription.save
