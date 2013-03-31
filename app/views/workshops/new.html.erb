@@ -2,15 +2,19 @@
 <h2>New Workshop</h2>
 <hr>
 
-<font color="#FF0066"><h3> [User who isn't a sharer]</h3></font>
+<!-- If current user is not a sharer --> <!-- Juhee-->
+<% if !current_user.is_sharer? %>
 <%= render :partial => "no_sharer" %>
 
-<font color="#FF0066"><h3> [User who is a sharer, but has a workshop already]</h3></font>
+<!-- If current user is a sharer and has a workshop-->  <!-- Rupa-->
+<% elsif current_user.is_sharer? && current_user.has_workshop? %>
 <%= render :partial => "sorry" %>
 
-<font color="#FF0066"><h3> [User who is a sharer, but has no workshop] </h3></font>
-
+<!-- If current user is a sharer and has no workshop--> <!-- Ryan-->
+<% else %> 
 <%= render 'form' %>
+
+<% end%>
 
 <hr>
 

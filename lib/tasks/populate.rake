@@ -79,9 +79,18 @@ namespace :db do
     js.credentials = "Policy club, Sports referee "
     js.major = "Internation Relations"
     js.save!
-
+    
+    
+    ry = Sharer.new
+    ry.user_id = rl.id
+    ry.first_name = "Ryan"
+    ry.last_name = "Rowe"
+    ry.credentials = "Sports"
+    ry.major = "Information Systems"
+    ry.save!
 
     rs = Sharer.new
+    rs.user_id = ru.id
     rs.first_name = "Rupa"
     rs.last_name = "Patel"
     rs.credentials = "Cluster Consultant, Chef "
@@ -101,6 +110,7 @@ namespace :db do
     ms.credentials = "Free Style Painting, Music Engineering, Professional Writing for Dr. Suess "
     ms.major = "CFA"
     ms.save!
+  
     
   # Step 2a: Add new Upvote
 	uv = Upvote.new

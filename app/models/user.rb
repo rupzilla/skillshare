@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     has_secure_password
 
     # Relationship
+    has_one :sharer
     has_many :subscriptions
     has_many :workshops, :through => :subscriptions
 
@@ -14,6 +15,28 @@ class User < ActiveRecord::Base
      def proper_name
        "#{first_name} #{last_name}"
      end
+     
+     def is_sharer?
+       is_a_sharer = self.sharer
+       
+       if is_a_sharer.nil?
+         return nil
+      else
+        return true
+       end
+     end
+
+      def has_workshop?
+          is_sharer = self.sharer
+          has_a_workshop = is_sharer.workshop 
+
+         if has_a_workshop.nil?
+           return nil
+        else
+          return true
+         end
+      end
+      
 
   
   end
