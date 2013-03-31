@@ -27,14 +27,13 @@ class User < ActiveRecord::Base
      end
 
       def has_workshop?
-          is_sharer = self.sharer
-          has_a_workshop = is_sharer.workshop 
-
-         if has_a_workshop.nil?
-           return nil
-        else
-          return true
-         end
+          sharer_has_workshop = self.sharer.has_workshop?
+          
+          if sharer_has_workshop.nil?
+            return nil
+          else
+            return true
+          end
       end
       
 

@@ -16,8 +16,8 @@
 
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+	<%= f.input :user_id, :collection => User.all, :include_blank => true %>
+
   </div>
   <div class="field">
     <%= f.label :first_name %><br />
