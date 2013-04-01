@@ -12,6 +12,8 @@ class HomeController < ApplicationController
 	  @user = current_user
     @subscription = current_user.subscriptions
     @workshops = current_user.workshops
+    @workshops_for_sharer = current_user.sharer.workshop
+    
 	end
 
   

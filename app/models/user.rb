@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     has_one :sharer
     has_many :subscriptions
     has_many :workshops, :through => :subscriptions
-
+        
     # Validations
     validates_uniqueness_of :email
     validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"

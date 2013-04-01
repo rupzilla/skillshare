@@ -74,6 +74,7 @@ namespace :db do
     #Step 2: Make some Sharers
 
     js = Sharer.new
+    js.user_id = bl.id
     js.first_name = "Jimmy"
     js.last_name = "Carter"
     js.credentials = "Policy club, Sports referee "
