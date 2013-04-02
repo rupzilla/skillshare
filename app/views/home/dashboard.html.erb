@@ -18,7 +18,7 @@
 
 </div>
 
-<div class="span4">
+<div class="span8">
 	<h2>Workshops You Subscribed To</h2>
 
 
@@ -65,39 +65,16 @@
 	<% end %>
 	</table>
 	
-	<h2>Workshop you are Teaching</h2>
+	<hr>
 	
+	<% if !current_user.is_sharer?.nil? && current_user.has_workshop?%>
 	
-	<table class="table table-striped">
-	  <tr>
-	    <th>Name</th>
-	    <th>Category</th>
-	    <th>Time</th>
-	    <th>Date</th>
-	    <th>Members Attending</th>
-	    <th>Location</th>
-		<th><th>
-
-	  </tr>
-
-	  <tr>
+	<%= render :partial => "workshops_teaching" %>
 	
-		<td><%= @workshops_for_sharer.description %></td>
-		<td><%= @workshops_for_sharer.category %></td>
-		<td><%= @workshops_for_sharer.start_time.strftime("%I:%M%p") %>-<%= @workshops_for_sharer.end_time.strftime("%I:%M%p") %></td>
-		<td><%= @workshops_for_sharer.date.strftime("%m/%d") %></td>
-		<td><%= @workshops_for_sharer.subscriptions.size %></td>
-		<td><%= @workshops_for_sharer.location%></td>
-	 	<td><%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_workshop_path(@workshops_for_sharer) %></td>
+	<%else%>
+		
+	<h3> You're not teaching any workshops! </h3>
 	
-	 	<td>	<%= link_to raw("<i class='icon-remove icon-white'></i> Delete"), workshop_path(@workshops_for_sharer), :method => "delete", :class => 'btn btn-danger btn-mini' %></td>
-
-
-	  </tr>
-	</table>
-
-	
-	
-
+	<%end%>
 
 </div>
