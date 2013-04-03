@@ -3,7 +3,7 @@ class WorkshopsController < ApplicationController
   # GET /workshops.json
   before_filter :check_login
   def index
-    @workshops = Workshop.all
+    @workshops = Workshop.by_upvotes_size
 
     respond_to do |format|
       format.html # index.html.erb

@@ -43,7 +43,7 @@ class UpvotesController < ApplicationController
      @upvote = Upvote.new(params[:upvote])
      @upvote.active = true
      @upvote.workshop_id = params[:workshop_id]
-     @upvote.user_id = User.first.id
+     @upvote.user_id = current_user.id
 
      respond_to do |format|
        if @upvote.save

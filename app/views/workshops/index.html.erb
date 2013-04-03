@@ -22,7 +22,13 @@
   <tr>
 	<td>
 		<%= workshop.upvotes.size %>
-		<%= render :partial => "upvote_form", :locals => {:workshop => workshop} %>
+		<% if current_user.workshop_upvotes.include?(workshop.id) %>
+			<h3>NO UPVOTE</h3>
+		<% else %>	
+			<%= render :partial => "upvote_form", :locals => {:workshop => workshop} %>
+		<% end %>
+		
+		
 		               <%#= render :partial => "downvote_form", :locals => {:workshop => workshop} %> </b></center>
 		</td>
 	<td><%= link_to workshop.description, workshop %></td>
@@ -37,7 +43,13 @@
     <td><%= workshop.size %></td>
     <td><%= workshop.location %></td>
 	<td><%#= link_to raw("Subscribe"), subscriptions_path, :class => 'btn btn-mini btn btn-info' %>
-	<%= render :partial => "subscribe_form", :locals => {:workshop => workshop} %>
+		<% if current_user.workshop_subscriptions.include?(workshop.id) %>
+			<h3>NO SUBSCRIBE</h3>
+		<% else %>	
+			<%= render :partial => "subscribe_form", :locals => {:workshop => workshop} %>
+		<% end %>
+		
+	
 	</td></td>
 
 
