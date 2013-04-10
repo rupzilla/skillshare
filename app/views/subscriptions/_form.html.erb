@@ -1,29 +1,27 @@
-<%= form_for(@subscription) do |f| %>
-  <% if @subscription.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
 
-      <ul>
-      <% @subscription.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+
+
+<%= simple_form_for @sharer, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>	
+	<legend><%= controller.action_name.capitalize %> Sharer</legend>
+
+
 
   <div class="field">
-    <%= f.label :workshop_id %><br />
-    <%= f.number_field :workshop_id %>
+	<%= f.input :user_id, :collection => User.all.map{|u| u.proper_name}%>
+  </div>	
+
+
+  <div class="field">
+    <%= f.input :credentials %><br />
+
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
+    <%= f.input :major %><br />
+
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+  </fieldset> 	
 <% end %>

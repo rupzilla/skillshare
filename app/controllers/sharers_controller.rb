@@ -24,12 +24,12 @@ class SharersController < ApplicationController
   # GET /sharers/new
   # GET /sharers/new.json
   def new
-    @sharer = Sharer.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @sharer }
-    end
+     #@user_names = User.all.map{|u| u.proper_name}
+     @sharer = Sharer.new
+     #     @c_user = current_user
+     @sharer.user_id = current_user.id
+     #     
+     #@sharer.user = User.find(current_user)   
   end
 
   # GET /sharers/1/edit

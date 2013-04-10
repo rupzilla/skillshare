@@ -29,52 +29,52 @@ namespace :db do
     ru.save!
 
 
-    el = User.new
-    el.active = true
-    el.email = "eman@gmail.com"
-    el.password = "skillshare"
-    el.first_name = "Emmanuel"
-    el.last_name = "Ruiz"
-    el.interests = "Adobe After Effects, Maya 3d Applications"
-    el.major = "Information Systems"
-    el.save!
+    eu = User.new
+    eu.active = true
+    eu.email = "eman@gmail.com"
+    eu.password = "skillshare"
+    eu.first_name = "Emmanuel"
+    eu.last_name = "Ruiz"
+    eu.interests = "Adobe After Effects, Maya 3d Applications"
+    eu.major = "Information Systems"
+    eu.save!
 
-    bl = User.new
-    bl.active = true
-    bl.email = "barnik@gmail.com"
-    bl.password = "skillshare"
-    bl.first_name = "Barnik"
-    bl.last_name = "Saha"
-    bl.interests = "Adobe Photoshop, Adobe Illustrator"
-    bl.major = "Information Systems"
-    bl.save!
-
-
-    jl = User.new
-    jl.active = true
-    jl.email = "juhee@gmail.com"
-    jl.password = "skillshare"
-    jl.first_name = "Juhee"
-    jl.last_name = "Song"
-    jl.interests = "Adobe After Effects, Microsoft Office Suite"
-    jl.major = "Information Systems"
-    jl.save!
+    bu = User.new
+    bu.active = true
+    bu.email = "barnik@gmail.com"
+    bu.password = "skillshare"
+    bu.first_name = "Barnik"
+    bu.last_name = "Saha"
+    bu.interests = "Adobe Photoshop, Adobe Illustrator"
+    bu.major = "Information Systems"
+    bu.save!
 
 
-    rl = User.new
-    rl.active = true
-    rl.email = "ryan@gmail.com"
-    rl.password = "skillshare"
-    rl.first_name = "Ryan"
-    rl.last_name = "Rowe"
-    rl.interests = "iPhone Development, Chemical extraction"
-    rl.major = "Information Systems"
-    rl.save!
+    ju = User.new
+    ju.active = true
+    ju.email = "juhee@gmail.com"
+    ju.password = "skillshare"
+    ju.first_name = "Juhee"
+    ju.last_name = "Song"
+    ju.interests = "Adobe After Effects, Microsoft Office Suite"
+    ju.major = "Information Systems"
+    ju.save!
+
+
+    ru = User.new
+    ru.active = true
+    ru.email = "ryan@gmail.com"
+    ru.password = "skillshare"
+    ru.first_name = "Ryan"
+    ru.last_name = "Rowe"
+    ru.interests = "iPhone Development, Chemical extraction"
+    ru.major = "Information Systems"
+    ru.save!
 
     #Step 2: Make some Sharers
 
     js = Sharer.new
-    js.user_id = bl.id
+    js.user_id = bu.id
     js.first_name = "Jimmy"
     js.last_name = "Carter"
     js.credentials = "Policy club, Sports referee "
@@ -83,7 +83,7 @@ namespace :db do
     
     
     ry = Sharer.new
-    ry.user_id = rl.id
+    ry.user_id = ru.id
     ry.first_name = "Ryan"
     ry.last_name = "Rowe"
     ry.credentials = "Sports"
