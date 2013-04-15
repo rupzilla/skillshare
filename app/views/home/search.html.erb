@@ -1,3 +1,22 @@
 <h2>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h2>
 <p class="supertiny">&nbsp;</p>
 
+<% unless @sharers.empty? %>
+	<p><em><strong>Sharers matching term '<%= @query %>'</strong></em></p>
+	<ul>
+		<% for sharer in @sharers do %>
+			<li><%= link_to sharer.proper_name, sharer_path(sharer) %></li>
+		<% end %>
+	</ul>
+	<p class="smtext">&nbsp;</p>
+<% end %>
+
+<% unless @workshops.empty? %>
+	<p><em><strong>Workshops matching term '<%= @query %>'</strong></em></p>
+	<ul>
+		<% for workshop in @workshops do %>
+			<li><%= link_to workshop.description, workshop_path(workshop) %></li>
+		<% end %>
+	</ul>
+	<p class="supertiny">&nbsp;</p>
+<% end %>

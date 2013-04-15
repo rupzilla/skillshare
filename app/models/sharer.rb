@@ -7,7 +7,7 @@ class Sharer < ActiveRecord::Base
   has_many :subscriptions, :through => :workshops
   
   #Scopes
-  scope :search, lambda { |term| where('sharers.first_name LIKE ?', "#{term}%").order("sharer.first_name") }
+  scope :search, lambda { |term| where('first_name LIKE ?', "#{term}%").order("first_name") }
   
   
   # Other methods

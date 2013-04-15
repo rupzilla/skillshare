@@ -15,7 +15,7 @@ class Workshop < ActiveRecord::Base
   #  :order => 'workshop.upvote.count desc'
   
   scope :by_upvotes_size, Workshop.joins("LEFT OUTER JOIN upvotes ON workshop_id = workshops.id").group("workshops.id").order('COUNT(workshop_id) DESC')
-  scope :search, lambda { |term| where('workshops.description LIKE ?', "#{term}%").order("workshop.description") }
+  scope :search, lambda { |term| where('description LIKE ?', "#{term}%").order("description") }
   
   #scope :by_upvotes_size, joins(:upvotes).group(:workshop_id).order('COUNT(workshop_id) DESC')
   #default_scope :order => "upvotes_count DESC"
