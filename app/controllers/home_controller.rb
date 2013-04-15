@@ -16,6 +16,11 @@ class HomeController < ApplicationController
     
 	end
 
-  
+  def search
+    @query = params[:query]
+    @sharers = Sharer.search(@query)
+    @workshops = Workshop.search(@query)
+    @total_hits = @sharers.size + @workshops.size
+  end
 
 end

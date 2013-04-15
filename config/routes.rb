@@ -27,6 +27,7 @@ SkillShare::Application.routes.draw do
     
 
 
+    match 'search' => 'home#search', :as => :search
 
 
 

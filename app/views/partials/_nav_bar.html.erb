@@ -16,10 +16,16 @@
 		  <li><%= link_to "Dashboard", dashboard_path %></li>
 		
 		  <li><%= link_to "FAQ", faq_path %></li>
-		  <li><%= link_to 'Logout', logout_path %></li>	
-
+		  <li><%= link_to 'Logout', logout_path %></li>
 
         </ul>
+
+		
+		<%= form_tag(search_path) do %>
+			<%= text_field_tag('query', '', :size => 12) %>
+			<%= submit_tag('Find') %>
+		<% end %>
+
       </div>
     </div>
   </div>
