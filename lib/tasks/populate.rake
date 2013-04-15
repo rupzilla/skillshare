@@ -75,8 +75,8 @@ namespace :db do
 
     js = Sharer.new
     js.user_id = bu.id
-    js.first_name = "Jimmy"
-    js.last_name = "Carter"
+    js.first_name = "Barnik"
+    js.last_name = "Saha"
     js.credentials = "Policy club, Sports referee "
     js.major = "Internation Relations"
     js.save!
