@@ -77,10 +77,19 @@ class WorkshopsController < ApplicationController
   def destroy
     @workshop = Workshop.find(params[:id])
     @workshop.destroy
-
-    respond_to do |format|
-      format.html { redirect_to workshops_url }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Successfully removed workshop from the AMC system."
+    redirect_to workshops_url
+    
+    @subscription = Subscription.find(params[:id])
+    @subscription.destroy
+    flash[:notice] = "Successfully unsubcribed from workshop."
+    redirect_to workshops_url
+    
+    @upvote = Upvote.find(params[:id])
+    @upvote.destroy
+    flash[:notice] = "Successfully took away your vote from workshop."
+    redirect_to workshops_url
+    
+   
   end
 end

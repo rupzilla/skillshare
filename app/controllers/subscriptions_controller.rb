@@ -77,10 +77,8 @@ class SubscriptionsController < ApplicationController
   def destroy
     @subscription = Subscription.find(params[:id])
     @subscription.destroy
-
-    respond_to do |format|
-      format.html { redirect_to subscriptions_url }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Successfully unsubcribed from workshop."
+    redirect_to workshops_url
+    
   end
 end

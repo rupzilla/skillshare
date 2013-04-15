@@ -6,4 +6,8 @@ class Ability
     #
 	user ||= User.new # guest user (not logged in)
   end
+  
+  def proper_name
+    "#{first_name} #{last_name}"
+  end
 end

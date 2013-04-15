@@ -73,6 +73,25 @@ class User < ActiveRecord::Base
                  
       end
       
+      def get_workshop_subscription(workshop_id)
+        subscriptions = self.subscriptions
+        subscriptions.each do |sub|
+          if sub.workshop.id == workshop_id
+            return sub
+          end
+        end
+        nil
+      end
+      
+      def get_workshop_upvote(workshop_id)
+        upvotes = self.upvotes
+        upvotes.each do |up|
+          if up.workshop.id == workshop_id
+            return up
+          end
+        end
+        nil
+      end
       
 
   
