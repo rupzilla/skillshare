@@ -40,7 +40,8 @@ class SharersController < ApplicationController
   # POST /sharers
   # POST /sharers.json
   def create
-    @sharer = Sharer.new(params[:sharer])
+    #@sharer = Sharer.new(params[:sharer])
+    @sharer = current_user.proper_name
 
     respond_to do |format|
       if @sharer.save

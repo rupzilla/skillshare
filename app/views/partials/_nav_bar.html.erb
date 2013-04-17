@@ -20,11 +20,16 @@
 
         </ul>
 
-		<div style="display: inline-block;" class="pull-right"> 
+		<div style="display: inline-block;" class="navbar-form pull-right"> 
+			
 		<%= form_tag(search_path) do %>
 			<%= text_field_tag('query', '', :size => 12) %>
-			<%= submit_tag('Search') %>
+		  <button type="submit" class="btn btn-mini">Search</button>
 		<% end %>
+		
+			
+		
+		
 		</div>
       </div>
     </div>
