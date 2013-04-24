@@ -74,17 +74,17 @@
 		<h3> You're not teaching any workshops! </h3>
 		<%= link_to raw("Create A Workshop"), new_workshop_path, :class => 'btn btn-small btn-success' %>
 		
-		<% elsif current_user.is_sharer? && current_user.has_workshop?%>
+	<% elsif current_user.is_sharer? && current_user.has_workshop?%>
 		
 		<%= render :partial => "workshops_teaching" %>
 		
 		
 		
-		<%else%>
+	<%else%>
 			
 		<h3> You're not a tutor! You can't teach yet! </h3>
 		<%= link_to raw("Become a tutor"), new_sharer_path, :class => 'btn btn-small btn-success' %>
 		
-		<%end%>
+	<%end%>
 
 </div>
