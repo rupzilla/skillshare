@@ -2,7 +2,7 @@
 
 
 
-<%= form_for(@workshop) do |f| %>
+<%= simple_form_for @workshop, :html => { :class => 'form-horizontal' } do |f| %>
   <% if @workshop.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
@@ -14,6 +14,12 @@
       </ul>
     </div>
   <% end %>
+
+
+  <div class="field">
+    <%= f.input :sharer_id, :as => :hidden %><br />
+  </div>
+
 
 
 	
