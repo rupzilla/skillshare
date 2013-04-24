@@ -1,31 +1,25 @@
-<h1>Listing sharers</h1>
+<div class="span10">
 
-<table>
+<h1> Tutors</h1>
+<br>
+<table class="table table-striped">
   <tr>
-    <th>User</th>
-    <th>First name</th>
-    <th>Last name</th>
+    <th>Name</th>
     <th>Credentials</th>
     <th>Major</th>
-    <th></th>
-    <th></th>
-    <th></th>
+
   </tr>
 
 <% @sharers.each do |sharer| %>
   <tr>
-    <td><%= sharer.user_id %></td>
-    <td><%= sharer.first_name %></td>
-    <td><%= sharer.last_name %></td>
+    <td><%= link_to sharer.proper_name, sharer_path(sharer.id)%></td>
     <td><%= sharer.credentials %></td>
     <td><%= sharer.major %></td>
-    <td><%= link_to 'Show', sharer %></td>
-    <td><%= link_to 'Edit', edit_sharer_path(sharer) %></td>
-    <td><%= link_to 'Destroy', sharer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Sharer', new_sharer_path %>
+<p><%= link_to raw("Become a Tutor!"), new_sharer_path, :class => 'btn btn-small btn-success' %></p>
+</div>

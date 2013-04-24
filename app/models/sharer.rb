@@ -6,6 +6,10 @@ class Sharer < ActiveRecord::Base
   has_one :user
   has_many :subscriptions, :through => :workshops
   
+  #Scopes
+  scope :search, lambda { |term| where('first_name LIKE ?', "#{term}%").order("first_name") }
+  
+  
   # Other methods
   def proper_name
     "#{first_name} #{last_name}"
