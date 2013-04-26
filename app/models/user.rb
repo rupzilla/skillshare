@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
     # Validations
     validates_uniqueness_of :email
     validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
+	# validate :no_double_upvoting
+	# validate :no_double_subbing
     
     # Other methods
      def proper_name
@@ -93,6 +95,35 @@ class User < ActiveRecord::Base
         nil
       end
       
-
+	  # private
+	  # def no_double_upvoting
+		# upvs = self.upvotes
+		# y = 0
+		# for i in 0..(upvs.size - 1) do
+			# upvs.each do |e|
+				# if upvs[i].workshop_id == e.workshop_id
+					# y = y + 1
+				# end
+			# end
+			# if y >= 1
+				# errors.add_to_base("You cannot upvote a workshop more than once.")
+			# end
+		# end
+	  # end
+	  
+	  # def no_double_subbing
+		# subbies = self.subscriptions.workshops
+		# y = 0
+		# for i in 0..(subbies.size - 1) do
+			# subbies.each do |e|
+				# if subbies[i].workshop_id == e.workshop_id
+					# y = y + 1
+				# end
+			# end
+			# if y >= 1
+				# errors.add_to_base("You cannot subscribe more than once to a workshop.")
+			# end
+		# end		
+	  # end
   
   end

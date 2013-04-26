@@ -25,5 +25,11 @@ class Sharer < ActiveRecord::Base
       end
        
   end
+
+   # def reformat_names
+     # ssn = self.ssn.to_s      # change to string in case input as all numbers 
+     # ssn.gsub!(/[^0-9]/,"")   # strip all non-digits
+     # self.ssn = ssn           # reset self.ssn to new string
+   # end
   
 end
