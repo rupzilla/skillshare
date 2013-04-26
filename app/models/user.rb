@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
     # Validations
     validates_uniqueness_of :email
     validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
+	validates_presence_of :first_name
+	validates_presence_of :last_name
 	# validate :no_double_upvoting
 	# validate :no_double_subbing
     
@@ -95,9 +97,14 @@ class User < ActiveRecord::Base
         nil
       end
       
-	  # private
-	  # def no_double_upvoting
-		# upvs = self.upvotes
+	private
+	  def no_double_upvoting
+		upvs = self.upvotes
+		wshops = Workshop.all
+		for w in wshops do
+			if upvs.for_workshop(w.id).size <= 1
+				errors.add_to_base("You cannot upvote a workshop more than once.")
+			end
 		# y = 0
 		# for i in 0..(upvs.size - 1) do
 			# upvs.each do |e|
@@ -108,22 +115,17 @@ class User < ActiveRecord::Base
 			# if y >= 1
 				# errors.add_to_base("You cannot upvote a workshop more than once.")
 			# end
-		# end
-	  # end
+		end
+	  end
 	  
-	  # def no_double_subbing
-		# subbies = self.subscriptions.workshops
-		# y = 0
-		# for i in 0..(subbies.size - 1) do
-			# subbies.each do |e|
-				# if subbies[i].workshop_id == e.workshop_id
-					# y = y + 1
-				# end
-			# end
-			# if y >= 1
-				# errors.add_to_base("You cannot subscribe more than once to a workshop.")
-			# end
-		# end		
-	  # end
-  
+	  def no_double_subbing
+		subs = self.subscriptions
+		wshops = Workshop.all
+		for w in wshops do
+			if subs.for_workshop(w.id).size <= 1
+				errors.add_to_base("You cannot upvote a workshop more than once.")
+			end
+		end
+	  end		
+	  
   end

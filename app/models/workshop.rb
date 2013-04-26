@@ -14,16 +14,17 @@ class Workshop < ActiveRecord::Base
   #  :group => "workshop_id",
   #  :order => 'workshop.upvote.count desc'
 
-  validates_date :date, :after => lambda{Date.current}, :unless => :active == false
-  validates_uniqueness_of :sharer
+#  validates_date :date, :after => lambda{Date.current}, :unless => :active == false
+#  validates_uniqueness_of :sharer
   
   scope :alphabetical, order('description')
   scope :for_category, lambda {|category| where("category = ?", "#{category}") }
+  scope :for_sharer, lambda {|sharer_id| where("sharer_id = ?", sharer_id) }
   scope :active, where('active = ?', true)
   scope :inactive, where('active = ?', false)  
   scope :by_upvotes_size, Workshop.joins("LEFT OUTER JOIN upvotes ON workshop_id = workshops.id").group("workshops.id").order('COUNT(workshop_id) DESC')
   scope :search, lambda { |term| where('description LIKE ?', "#{term}%").order("description") }
-  
+    
   #scope :by_upvotes_size, joins(:upvotes).group(:workshop_id).order('COUNT(workshop_id) DESC')
   #default_scope :order => "upvotes_count DESC"
 

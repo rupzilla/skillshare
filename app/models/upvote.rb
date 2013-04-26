@@ -7,7 +7,6 @@ class Upvote < ActiveRecord::Base
   
   validates_presence_of :user
   validates_presence_of :workshop
-  validate :no_double_voting
   
   # Scope
   scope :for_workshop, lambda {|workshop_id| where("workshop_id = ?", workshop_id) }
