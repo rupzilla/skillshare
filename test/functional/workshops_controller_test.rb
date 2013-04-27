@@ -18,7 +18,7 @@ class WorkshopsControllerTest < ActionController::TestCase
 
   test "should create workshop" do
     assert_difference('Workshop.count') do
-      post :create, workshop: { active: @workshop.active, category: @workshop.category, date: @workshop.date, description: @workshop.description, end_time: @workshop.end_time, learner_id: @workshop.learner_id, location: @workshop.location, sharer_id: @workshop.sharer_id, size: @workshop.size, start_time: @workshop.start_time, subdescription: @workshop.subdescription }
+      post :create, workshop: { active: @workshop.active, category: @workshop.category, date: @workshop.date, description: @workshop.description, end_time: @workshop.end_time, location: @workshop.location, sharer_id: @workshop.sharer_id, size: @workshop.size, start_time: @workshop.start_time, subdescription: @workshop.subdescription }
     end
 
     assert_redirected_to workshop_path(assigns(:workshop))
@@ -35,7 +35,7 @@ class WorkshopsControllerTest < ActionController::TestCase
   end
 
   test "should update workshop" do
-    put :update, id: @workshop, workshop: { active: @workshop.active, category: @workshop.category, date: @workshop.date, description: @workshop.description, end_time: @workshop.end_time, learner_id: @workshop.learner_id, location: @workshop.location, sharer_id: @workshop.sharer_id, size: @workshop.size, start_time: @workshop.start_time, subdescription: @workshop.subdescription }
+    put :update, id: @workshop, workshop: { active: @workshop.active, category: @workshop.category, date: @workshop.date, description: @workshop.description, end_time: @workshop.end_time, location: @workshop.location, sharer_id: @workshop.sharer_id, size: @workshop.size, start_time: @workshop.start_time, subdescription: @workshop.subdescription }
     assert_redirected_to workshop_path(assigns(:workshop))
   end
 

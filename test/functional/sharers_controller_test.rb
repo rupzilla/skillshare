@@ -18,7 +18,7 @@ class SharersControllerTest < ActionController::TestCase
 
   test "should create sharer" do
     assert_difference('Sharer.count') do
-      post :create, sharer: { credentials: @sharer.credentials, first_name: @sharer.first_name, last_name: @sharer.last_name, major: @sharer.major, user_id: @sharer.user_id }
+      post :create, sharer: { credentials: @sharer.credentials, major: @sharer.major, user_id: @sharer.user_id }
     end
 
     assert_redirected_to sharer_path(assigns(:sharer))
@@ -35,7 +35,7 @@ class SharersControllerTest < ActionController::TestCase
   end
 
   test "should update sharer" do
-    put :update, id: @sharer, sharer: { credentials: @sharer.credentials, first_name: @sharer.first_name, last_name: @sharer.last_name, major: @sharer.major, user_id: @sharer.user_id }
+    put :update, id: @sharer, sharer: { credentials: @sharer.credentials, major: @sharer.major, user_id: @sharer.user_id }
     assert_redirected_to sharer_path(assigns(:sharer))
   end
 

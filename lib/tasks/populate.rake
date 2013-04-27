@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
 
     # Step 0: clear any old data in the db
-    [Learner, Sharer, Upvote, Subscription, Workshop, User].each(&:delete_all)
+    [Sharer, Upvote, Subscription, Workshop, User].each(&:delete_all)
 
 	
   	#Step 1: Add users
@@ -25,7 +25,7 @@ namespace :db do
     ru.first_name = "Rupa"
     ru.last_name = "Patel"
     ru.interests = "Life Coach, Boss"
-    ru.major = "Information Systems"
+#	ru.major = "Information Systems"
     ru.save!
 
 
@@ -36,7 +36,7 @@ namespace :db do
     eu.first_name = "Emmanuel"
     eu.last_name = "Ruiz"
     eu.interests = "Adobe After Effects, Maya 3d Applications"
-    eu.major = "Information Systems"
+#	eu.major = "Information Systems"
     eu.save!
 
     bu = User.new
@@ -46,7 +46,7 @@ namespace :db do
     bu.first_name = "Barnik"
     bu.last_name = "Saha"
     bu.interests = "Adobe Photoshop, Adobe Illustrator"
-    bu.major = "Information Systems"
+#	bu.major = "Information Systems"
     bu.save!
 
 
@@ -57,7 +57,7 @@ namespace :db do
     ju.first_name = "Juhee"
     ju.last_name = "Song"
     ju.interests = "Adobe After Effects, Microsoft Office Suite"
-    ju.major = "Information Systems"
+#	ju.major = "Information Systems"
     ju.save!
 
 
@@ -68,7 +68,7 @@ namespace :db do
     ryu.first_name = "Ryan"
     ryu.last_name = "Rowe"
     ryu.interests = "iPhone Development, Chemical extraction"
-    ryu.major = "Information Systems"
+#	ryu.major = "Information Systems"
     ryu.save!
 
     du = User.new
@@ -78,7 +78,7 @@ namespace :db do
     du.first_name = "Drew"
     du.last_name = "James"
     du.interests = "Computer puppets and dummies"
-    du.major = "Computer Science"
+#	du.major = "Computer Science"
     du.save!
 
     mu = User.new
@@ -88,7 +88,7 @@ namespace :db do
     mu.first_name = "Michael"
     mu.last_name = "Snipes"
     mu.interests = "Abstract pancake-making"
-    mu.major = "CFA"
+#	mu.major = "CFA"
     mu.save!
 	
     #Step 2: Make some Sharers

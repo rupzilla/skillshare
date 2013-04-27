@@ -5,16 +5,17 @@ class UpvoteTest < ActiveSupport::TestCase
 	should belong_to(:user)
 	
 	should validate_presence_of(:user)
+	should validate_presence_of(:workshop)
 
    # Need to do the rest with a context
    context "Creating six employees and three stores with five assignments" do
      # create the objects I want with factories
     setup do 
-		@rupa = FactoryGirl.create(:user)
+		@rupa = FactoryGirl.create(:user, :first_name => "Rupa", :last_name => "Patel", :email => "rupzilla@gmail.com")
 		@rupatut = FactoryGirl.create(:sharer, :user => @rupa)
-		@ryan = FactoryGirl.create(:user, :first_name => "Ryan", :last_name => "Rowe")
+		@ryan = FactoryGirl.create(:user, :first_name => "Ryan", :last_name => "Rowe", :email => "ryan@gmail.com")
 		@ryantut = FactoryGirl.create(:sharer, :user => @ryan)
-		@eman = FactoryGirl.create(:user, :first_name => "Emannuel", :last_name => "Ruiz")
+		@eman = FactoryGirl.create(:user, :first_name => "Emannuel", :last_name => "Ruiz", :email => "eman@gmail.com")
 		@emantut = FactoryGirl.create(:sharer, :user => @eman)
 		@adobps = FactoryGirl.create(:workshop, :sharer => @rupatut)
 		@adobau = FactoryGirl.create(:workshop, :sharer => @emantut)

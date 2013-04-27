@@ -38,5 +38,6 @@ FactoryGirl.define do
 	email "tesla@example.com"
 	interests "Magic tricks"
     password_digest "$2a$10$o6xZS3B73OZ8GqRoM6uGPOEzZL0pOh6Yhk3qIMp2Qr2Fap.bshK5S"
+	active true
   end
 end

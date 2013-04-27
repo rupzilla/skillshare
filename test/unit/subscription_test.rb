@@ -9,7 +9,7 @@ class SubscriptionTest < ActiveSupport::TestCase
      # create the objects I want with factories
     setup do 
 		@barn = FactoryGirl.create(:user)
-		@barntut = FactoryGirl.create(:sharer, :user => @barn)
+		@barntut = FactoryGirl.create(:sharer, :user => @barn, credentials => "Tech. consulting, stuff", major => "Information Systems")
 		@adobps = FactoryGirl.create(:workshop, :sharer => @barntut)
 		@barnsubps = FactoryGirl.create(:subscription, :workshop => @adobps, :user => @barn)
     end
@@ -19,12 +19,12 @@ class SubscriptionTest < ActiveSupport::TestCase
 		@barn.destroy
 		@barntut.destroy
 		@adobps.destroy
-		@rupasubps.destroy
+		@barnsubps.destroy
     end
 
 	should "not have a user subscribed twice for a single workshop" do
-		@rupsubps2 = FactoryGirl.build(:subscription, :workshop => @adobps, :user => @rupa)
-		deny @rupsubps2.valid?
+		@barnsubps2 = FactoryGirl.build(:subscription, :workshop => @adobps, :user => @barn)
+		deny @barnsubps2.valid?
 	end
    end
 end
