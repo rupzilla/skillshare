@@ -2,14 +2,14 @@
 
 one:
   user_id: 1
-  first_name: MyString
-  last_name: MyString
+  # first_name: MyString
+  # last_name: MyString
   credentials: MyString
   major: MyString
 
 two:
   user_id: 1
-  first_name: MyString
-  last_name: MyString
+  # first_name: MyString
+  # last_name: MyString
   credentials: MyString
   major: MyString

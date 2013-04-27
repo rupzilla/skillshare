@@ -14,8 +14,6 @@ FactoryGirl.define do
   end
   
   factory :sharer do
-    first_name "Rupa"
-    last_name "Patel"
 	association :user
 	credentials "Tech. consulting, chef"
 	major "Information Systems"
@@ -39,7 +37,6 @@ FactoryGirl.define do
 	last_name "Saha"
 	email "tesla@example.com"
 	interests "Magic tricks"
-	major "Nothing"
     password_digest "$2a$10$o6xZS3B73OZ8GqRoM6uGPOEzZL0pOh6Yhk3qIMp2Qr2Fap.bshK5S"
   end
 end
