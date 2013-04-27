@@ -19,11 +19,9 @@
 <hr>
 
 <h4>Tutor Information</h4>
-
-
 <p>
   <b>Tutor:</b>
-  <%= link_to @workshop.sharer.proper_name, sharer_path(@workshop.sharer_id) %></p>
+  <%= link_to @workshop.sharer.first_name, sharer_path(@workshop.sharer_id) %></p>
 
 <p>
   <b>Credentials:</b>
@@ -73,4 +71,3 @@
 <br>
 <br>
 </div>
-

@@ -39,12 +39,11 @@ class WorkshopsController < ApplicationController
   end
   
 
-
   # POST /workshops
   # POST /workshops.json
   def create
     @workshop = Workshop.new(params[:workshop])
-
+    @workshop.sharer_id = current_user.sharer.id
     respond_to do |format|
       if @workshop.save
         format.html { redirect_to @workshop, notice: 'Workshop was successfully created.' }

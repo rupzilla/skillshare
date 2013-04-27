@@ -53,14 +53,38 @@
 	
 	<hr>
 	
-	<% if !current_user.is_sharer?.nil? && current_user.has_workshop?%>
+	<!-- <% if !current_user.is_sharer?.nil? && current_user.has_workshop?%>
 	
 	<%= render :partial => "workshops_teaching" %>
 	
 	<%else%>
 		
 	<h3> You're not teaching any workshops! </h3>
+	<%= link_to raw("Become a tutor"), new_sharer_path, :class => 'btn btn-small btn-success' %>
 	
+	<%end%> -->
+	
+	
+	
+	
+	
+	
+	<% if current_user.is_sharer? && !current_user.has_workshop? %>
+		
+		<h3> You're not teaching any workshops! </h3>
+		<%= link_to raw("Create A Workshop"), new_workshop_path, :class => 'btn btn-small btn-success' %>
+		
+	<% elsif current_user.is_sharer? && current_user.has_workshop?%>
+		
+		<%= render :partial => "workshops_teaching" %>
+		
+		
+		
+	<%else%>
+			
+		<h3> You're not a tutor! You can't teach yet! </h3>
+		<%= link_to raw("Become a tutor"), new_sharer_path, :class => 'btn btn-small btn-success' %>
+		
 	<%end%>
 
 </div>

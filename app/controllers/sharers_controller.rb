@@ -24,10 +24,10 @@ class SharersController < ApplicationController
   # GET /sharers/new
   # GET /sharers/new.json
   def new
-     #@user_names = User.all.map{|u| u.proper_name}
      @sharer = Sharer.new
-     #     @c_user = current_user
-     @sharer.user_id = current_user.id
+     @sharer.user_id ||= current_user.id
+     @sharer.first_name ||= current_user.first_name
+     @sharer.last_name ||= current_user.last_name
      #     
      #@sharer.user = User.find(current_user)   
   end
