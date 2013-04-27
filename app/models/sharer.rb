@@ -44,7 +44,7 @@ class Sharer < ActiveRecord::Base
   private
 	def only_one_workshop
 		unless self.workshop.nil?
-			ws = Workshop.find_by_sharer_id(self.id).active
+			ws = Workshop.for_sharer(self.id).active
 			unless ws.size <= 1
 				error.add_to_base("You cannot teach more than one workshops at a time")
 			end

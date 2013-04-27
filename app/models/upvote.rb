@@ -7,6 +7,8 @@ class Upvote < ActiveRecord::Base
   
   validates_presence_of :user
   validates_presence_of :workshop
+
+  validate :no_double_upvoting
   
   # Scope
   scope :for_workshop, lambda {|workshop_id| where("workshop_id = ?", workshop_id) }
@@ -14,7 +16,13 @@ class Upvote < ActiveRecord::Base
     
   # Scope
   # scope :for_workshop, lambda {|workshop_id| where("upvotes.workshop_id = ?", workshop_id) }
-  
-  
-  
+
+  private
+	  def no_double_upvoting
+		all_upvotes = Upvote.for_user(self.user_id).for_workshop(self.workshop_id)
+		if all_upvotes.size >= 1 then
+			errors.add(:user_id, "has already upvoted this workshop.")
+		end
+	  end
+
 end

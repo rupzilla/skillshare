@@ -15,19 +15,21 @@ class WorkshopTest < ActiveSupport::TestCase
 	should_not allow_value(78).for(:date)
 		
    # Need to do the rest with a context
-   context "Creating six employees and three stores with five assignments" do
+   context "Creating three users, three sharers, three workshops, three subscriptions, and four upvotes" do
      # create the objects I want with factories
     setup do 
-		@rupa = FactoryGirl.create(:user)
-		@rupatut = FactoryGirl.create(:sharer, :user => @rupa)
-		@ryan = FactoryGirl.create(:user, :first_name => "Ryan", last_name => "Rowe")
-		@ryantut = FactoryGirl.create(:sharer, :user => @ryan)
-		@eman = FactoryGirl.create(:user, :first_name => "Emannuel", :last_name => "Ruiz")
-		@emantut = FactoryGirl.create(:sharer, :user => @eman)
-		@adobps = FactoryGirl.create(:workshop, :sharer => @rupatut)
-		@adobau = FactoryGirl.create(:workshop, :description => "Audition", :sharer => @ryantut, :subdescription => "Audition is da sheeit", :active => false)
-		@anima = FactoryGirl.create(:workshop, :category => "Art", :description => "Animation", :sharer => @emantut, :subdescription => "Animation rules over everything and you know it")
-		@upvrups = FactoryGirl.create(:upvote, :user => @rupa, :workshop => @adobps)
+		@ryan = FactoryGirl.create(:user, :first_name => "Ryan", :last_name => "Rowe")
+		@barn = FactoryGirl.create(:user, :email => "faraday@example.com")
+		# @barntut = FactoryGirl.create(:sharer, :user => @barn)
+		@eman = FactoryGirl.create(:user, :first_name => "Emannuel", :last_name => "Ruiz", :email => "lavoisier@example.com")
+		# @emantut = FactoryGirl.create(:sharer, :user => @eman)
+		@adobps = FactoryGirl.create(:workshop, :sharer_id => 1)
+		@adobau = FactoryGirl.create(:workshop, :description => "Audition", :sharer_id => 2)
+		@anima = FactoryGirl.create(:workshop, :category => "Art", :description => "Animation", :sharer_id => 3, :active => false)
+		@ryansubps = FactoryGirl.create(:subscription, :workshop => @adobps, :user => @ryan)
+		@emansubau = FactoryGirl.create(:subscription, :workshop => @adobau, :user => @eman)
+		@ryansubau = FactoryGirl.create(:subscription, :workshop => @adobau, :user => @ryan)
+		@upvbaps = FactoryGirl.create(:upvote, :user => @barn, :workshop => @adobps)
 		@upvryps = FactoryGirl.create(:upvote, :user => @ryan, :workshop => @adobps)
 		@upvemps = FactoryGirl.create(:upvote, :user => @eman, :workshop => @adobps)
 		@upvryan = FactoryGirl.create(:upvote, :user => @ryan, :workshop => @anima)
@@ -35,16 +37,18 @@ class WorkshopTest < ActiveSupport::TestCase
 
      # and provide a teardown method as well
     teardown do
-		@rupa.destroy
-		@rupatut.destroy
 		@ryan.destroy
-		@ryantut.destroy
+		@barn.destroy
+		# @barntut.destroy
 		@eman.destroy
-		@emantut.destroy
+		# @emantut.destroy
 		@adobps.destroy
 		@adobau.destroy
 		@anima.destroy
-		@upvrups.destroy
+		@ryansubps.destroy
+		@emansubau.destroy
+		@ryansubau.destroy
+		@upvbaps.destroy
 		@upvryps.destroy
 		@upvemps.destroy
 		@upvryan.destroy
@@ -56,7 +60,7 @@ class WorkshopTest < ActiveSupport::TestCase
     end
 	
 	should "test :alphabetical scope" do
-		assert_equal [@anima.id, @adobau.id, @adobps.id], Workshop.alphabetical{|w| w.id}
+		assert_equal ["Animation", "Audition", "Photoshop"], Workshop.alphabetical{|w| w.description}
 	end
 	
 	should "distinguish workshops by activeness; can mess up if alphabetical scope doesn't work" do

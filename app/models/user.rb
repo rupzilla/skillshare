@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
     attr_accessible :email, :password, :password_confirmation
     has_secure_password
+	
+	# Callbacks
+#	before_save :no_double_subbing
 
     # Relationship
     has_one :sharer
@@ -9,12 +12,14 @@ class User < ActiveRecord::Base
     has_many :upvotes
         
     # Validations
+	validates_presence_of :email
     validates_uniqueness_of :email
     validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
 	validates_presence_of :first_name
 	validates_presence_of :last_name
-	# validate :no_double_upvoting
-	# validate :no_double_subbing
+	
+#	validate :no_double_upvoting
+	validate :no_double_subbing
     
     # Other methods
      def proper_name
@@ -108,8 +113,8 @@ class User < ActiveRecord::Base
 		upvs = self.upvotes
 		wshops = Workshop.all
 		for w in wshops do
-			if upvs.for_workshop(w.id).size <= 1
-				errors.add_to_base("You cannot upvote a workshop more than once.")
+			unless upvs.for_workshop(w.id).size == 0 then
+				errors.add(:id, "You cannot upvote a workshop more than once.")
 			end
 		# y = 0
 		# for i in 0..(upvs.size - 1) do
@@ -125,13 +130,12 @@ class User < ActiveRecord::Base
 	  end
 	  
 	  def no_double_subbing
-		subs = self.subscriptions
 		wshops = Workshop.all
 		for w in wshops do
-			if subs.for_workshop(w.id).size <= 1
-				errors.add_to_base("You cannot upvote a workshop more than once.")
+			unless (Subscription.for_user(self.id).for_workshop(w.id).size) == 0 then
+				errors.add(:id, "You cannot upvote a workshop more than once.")
 			end
 		end
-	  end		
+	  end
 	  
   end
