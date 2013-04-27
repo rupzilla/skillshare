@@ -30,6 +30,12 @@ class User < ActiveRecord::Base
         return true
        end
      end
+	 
+	 def major
+		unless self.sharer.nil?
+			self.sharer.major
+		end
+	 end
 
       def has_workshop?
           sharer_has_workshop = self.sharer.has_workshop?

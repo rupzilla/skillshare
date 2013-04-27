@@ -1,24 +1,26 @@
 class Sharer < ActiveRecord::Base
-  attr_accessible :credentials, :first_name, :last_name, :major, :user_id
+#	attr_accessible :credentials, :first_name, :last_name, :major, :user_id
+  attr_accessible :credentials, :major, :user_id
 
+  
   # Relationships
   has_one :workshop
-  has_one :user
+  belongs_to :user
   has_many :subscriptions, :through => :workshops
   
   validate :only_one_workshop
   
   #Scopes
-  scope :search, lambda { |term| where('first_name LIKE ?', "#{term}%").order("first_name") }
+  scope :search, lambda { |term| joins(:user).where('first_name LIKE ?', "#{term}%").order('first_name') }
   
   
   # Other methods
   def first_name
-	self.user.first_name
+	User.find(self.user_id).first_name
   end
   
   def last_name
-	self.user_last_name
+	User.find(self.user_id).last_name
   end
   
   def proper_name
