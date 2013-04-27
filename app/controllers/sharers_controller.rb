@@ -44,7 +44,7 @@ class SharersController < ApplicationController
 
     respond_to do |format|
       if @sharer.save
-        format.html { redirect_to @sharer, notice: 'Sharer was successfully created.' }
+        format.html { redirect_to @sharer, notice: 'Tutor was successfully created.' }
         format.json { render json: @sharer, status: :created, location: @sharer }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class SharersController < ApplicationController
 
     respond_to do |format|
       if @sharer.update_attributes(params[:sharer])
-        format.html { redirect_to @sharer, notice: 'Sharer was successfully updated.' }
+        format.html { redirect_to @sharer, notice: 'Tutor was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

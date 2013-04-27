@@ -1,0 +1,31 @@
+<h2>Workshops You Subscribed To</h2>
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Sharer</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Date</th>
+    <th>Members Attending</th>
+    <th>Location</th>
+  </tr>
+
+
+<% @workshops.each do |workshop| %>
+  <tr>
+	<td><%= link_to workshop.description, workshop %></td>
+    <td><%= workshop.category %></td>
+    <td><%= link_to workshop.sharer.proper_name, sharer_path(workshop.sharer_id)%></td>
+    <td><%= workshop.start_time.strftime("%I:%M%p") %></td>
+    <td><%= workshop.end_time.strftime("%I:%M%p") %></td>
+    <td><%= workshop.date.strftime("%m/%d") %></td>
+    <td><%= workshop.subscriptions.size %></td>
+    <td><%= workshop.location %></td>
+
+
+  </tr>
+<% end %>
+</table>

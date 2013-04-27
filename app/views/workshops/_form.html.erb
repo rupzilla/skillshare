@@ -33,17 +33,13 @@
     <%= f.text_field :subdescription %>
   </div>
   <div class="field">
-	<%= f.label :date %>
-   	<%= f.date_select :date, :order => [:month, :day, :year], :start_year => Time.now.year-100, :end_year => Time.now.year %>
-  </div>
-  <div class="field">
-    <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
-  </div>
-  <div class="field">
-    <%= f.label :end_time %>
-    <%= f.datetime_select :end_time %>
-  </div>
+      
+          <%= f.input :date, :order => [:month, :day, :year], :start_year => Time.now.year, :end_year => Time.now.year+2 %>
+ </div>
+
+       <%= f.input :start_time, :label => "Start Time", :as => :time, :ampm => true, :minute_step => 5%>
+
+       <%= f.input :end_time, :label => "Start Time", :as => :time, :ampm => true, :minute_step => 5 %>
 
   <div class="field">
     <%= f.label :size %>
@@ -66,4 +62,14 @@
   
   </div>
 <% end %>
+
+
+
+
+
+
+
+
+
+
 
