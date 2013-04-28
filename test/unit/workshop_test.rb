@@ -20,6 +20,7 @@ class WorkshopTest < ActiveSupport::TestCase
 	should allow_value(5).for(:size)
 	should_not allow_value(0).for(:size)
 	should_not allow_value(-3).for(:size)
+	should_not allow_value("5").for(:size)
 	
    # Need to do the rest with a context
    context "Creating three users, three sharers, three workshops, three subscriptions, and four upvotes" do
