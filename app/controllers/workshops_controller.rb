@@ -74,21 +74,27 @@ class WorkshopsController < ApplicationController
   # DELETE /workshops/1
   # DELETE /workshops/1.json
   def destroy
-    @workshop = Workshop.find(params[:id])
-    @workshop.destroy
-    flash[:notice] = "Successfully removed workshop from the AMC system."
-    redirect_to workshops_url
+ 
     
-    @subscription = Subscription.find(params[:id])
-    @subscription.destroy
-    flash[:notice] = "Successfully unsubcribed from workshop."
-    redirect_to workshops_url
+    # #if current_user.get_workshop_subscription(:id) != nil    
+    #      @subscription = Subscription.find(params[:id])
+    #      @subscription.destroy
+    #      #flash[:notice] = "Successfully unsubcribed from workshop."
+    #      #redirect_to workshops_url
+    #    #end
+    #    
+    #    #if current_user.get_workshop_upvote(:id) != nil
+    #      @upvote = Upvote.find(params[:id])
+    #      @upvote.destroy
+    #      #flash[:notice] = "Successfully took away your vote from workshop."
+    #      #redirect_to workshops_url
+    #    #end
+
+      @workshop = Workshop.find(params[:id])
+      @workshop.destroy
+      #flash[:notice] = "Successfully removed workshop from the AMC system."
+      redirect_to workshops_url
     
-    @upvote = Upvote.find(params[:id])
-    @upvote.destroy
-    flash[:notice] = "Successfully took away your vote from workshop."
-    redirect_to workshops_url
-    
-   
+
   end
 end

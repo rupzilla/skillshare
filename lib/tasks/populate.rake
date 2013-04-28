@@ -114,16 +114,16 @@ namespace :db do
   
     
   # Step 2a: Add new Upvote
-	uv = Upvote.new
-	uv.active = true
-	uv.save!
+  # uv = Upvote.new
+  # uv.active = true
+  # uv.save!
 
 
 	# Step 2a: Add new Subscription
-	ss = Subscription.new
-	ss.active = true
-	ss.workshop_id = ss.id
-	ss.save!
+  # ss = Subscription.new
+  # ss.active = true
+  # ss.workshop_id = ss.id
+  # ss.save!
 
 	#Step 3: Make some Workshops
 

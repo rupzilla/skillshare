@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    attr_accessible :email, :password, :password_confirmation
+    attr_accessible :email, :password, :first_name, :last_name
     has_secure_password
 
     # Relationship
@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     has_many :subscriptions
     has_many :workshops, :through => :subscriptions
     has_many :upvotes
+    #has_secure_password
         
     # Validations
     validates_uniqueness_of :email
