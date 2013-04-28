@@ -11,9 +11,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-	  UserMailer.new_user_msg(@user).deliver
-#	  session[:user_id] = @user.id
-      redirect_to home_path, :notice => "#{@user.first_name} has been added as a user and notified by email."
+#	  UserMailer.new_user_msg(@user).deliver
+	  session[:user_id] = @user.id
+      redirect_to home_path, :notice => "#{@user.proper_name} has been added as a user."
     else
       render :action => 'new'
     end
@@ -21,12 +21,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+	authorize! :manage, @user
   end
 
   def update
     @user = current_user
+	authorize! :manage, @user
     if @user.update_attributes(params[:user])
-      redirect_to home_path, :notice => "#{@user.first_name}'s profile has been updated."
+      redirect_to home_path, :notice => "#{@user.proper_name}'s profile has been updated."
     else
       render :action => 'edit'
     end

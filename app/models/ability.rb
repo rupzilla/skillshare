@@ -21,9 +21,6 @@ class Ability
 		can :manage, Workshop do |w|
 			w.sharer.user_id == user.id
 		end
-		# can :manage, Upvote do |u|
-			# w.sharer.user_id == user.id
-		# end
 	end
 	# if user.sharer_id 
 		# can :update, Employee do |emp|

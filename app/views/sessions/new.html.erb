@@ -25,7 +25,9 @@
 </div> -->
 
 
-
+<% if logged_in? %>
+	<% redirect_to home_path %>
+<% end %>
 
 <div class="span6">
 
@@ -157,6 +159,7 @@
 	              </div>
               
 				<div class="actions"><%= submit_tag "Sign In" %></div>
+				<%= link_to 'Register', new_user_path %>
 		
 
 	            </fieldset>
