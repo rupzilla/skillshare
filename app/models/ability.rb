@@ -5,21 +5,41 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
 	user ||= User.new # guest user (not logged in)
-	
-		can :update, Employee do |emp|
-			emp.current_assignment.store_id == user.employee.current_assignment.store_id
+	can :manage, User do |u|
+		u.id == user.id
+	end	
+	can :delete, Subscription do |su|
+		su.user_id == user.id
+	end
+	can :delete, Upvote do |up|
+		up.user_id == user.id
+	end
+	if user.is_sharer?
+		can :manage, Sharer do |s|
+			s.user_id == user.id
 		end
-		can :manage, Shift#.by_store(user.employee.current_assignment.store_id)
-#		can :manage, Shift do |shift|
-#			shift.assignment.store_id == user.employee.current_assignment.store_id
-#		end
-	elsif user.role? :employee
-		can :read, Employee do |emp|
-			emp.id == user.employee_id
+		can :manage, Workshop do |w|
+			w.sharer.user_id == user.id
 		end
-		can :read, Shift do |shift|
-			shift.assignment_id == user.employee.current_assignment.id
-		end	
+		# can :manage, Upvote do |u|
+			# w.sharer.user_id == user.id
+		# end
+	end
+	# if user.sharer_id 
+		# can :update, Employee do |emp|
+			# emp.current_assignment.store_id == user.employee.current_assignment.store_id
+		# end
+		# can :manage, Shift#.by_store(user.employee.current_assignment.store_id)
+# #		can :manage, Shift do |shift|
+# #			shift.assignment.store_id == user.employee.current_assignment.store_id
+# #		end
+	# elsif user.role? :employee
+		# can :read, Employee do |emp|
+			# emp.id == user.employee_id
+		# end
+		# can :read, Shift do |shift|
+			# shift.assignment_id == user.employee.current_assignment.id
+		# end	
     #
     # The first argument to `can` is the action you are giving the user 
     # permission to do.

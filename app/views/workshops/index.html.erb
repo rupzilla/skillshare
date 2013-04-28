@@ -21,6 +21,7 @@
 
 <% @workshops.each do |workshop| %>
   <tr>
+   <% if workshop.active == true %>
 	<td>
 		<%= workshop.upvotes.size %>
 		<% if current_user.workshop_upvotes.include?(workshop.id) %>
@@ -54,7 +55,7 @@
 		
 	
 	</td></td>
-
+   <% end %>
 
   </tr>
 <% end %>

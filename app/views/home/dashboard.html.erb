@@ -5,8 +5,11 @@
 
 <p><b> Name: </b><%= current_user.proper_name %></p>
 <p><b> Interests: </b><%= current_user.interests %></p>
-<p><b> Major: </b><%= current_user.major %></p>
+<% unless current_user.major.nil? %>
+	<p><b> Major: </b><%= current_user.major %></p>
+<% end %>
 
+<%= link_to raw("<i class='icon-pencil'></i> Edit my info"), edit_user_path(current_user) %>
 
 
 

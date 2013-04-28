@@ -1,10 +1,16 @@
 
-
-
 <%= simple_form_for @sharer, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>		
 
-  <div class="field">
+  <p></p>
+  
+<h5>
+ <b>Turning </b>
+ <i><%= current_user.proper_name %></i>
+ <b> into a Tutor on Scotty Skills! </b>
+</h5>
+  
+<!--  <div class="field">
     <%= f.input :user_id, :as => :hidden %><br />
   </div>
   <div class="field">
@@ -13,8 +19,8 @@
 
   <div class="field">
     <%= f.input :last_name, as: :string, :label => "Last Name" %><br />
-
   </div>
+ -->
   <div class="field">
     <%= f.input :credentials %><br />
 

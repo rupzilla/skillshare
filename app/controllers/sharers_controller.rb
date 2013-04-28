@@ -1,6 +1,7 @@
 class SharersController < ApplicationController
   # GET /sharers
   # GET /sharers.json
+
   def index
     @sharers = Sharer.all
 
@@ -25,6 +26,7 @@ class SharersController < ApplicationController
   # GET /sharers/new.json
   def new
      @sharer = Sharer.new
+#	 authorize! :manage, @sharer
      @sharer.user_id ||= current_user.id
      @sharer.first_name ||= current_user.first_name
      @sharer.last_name ||= current_user.last_name
@@ -35,12 +37,14 @@ class SharersController < ApplicationController
   # GET /sharers/1/edit
   def edit
     @sharer = Sharer.find(params[:id])
+	authorize! :manage, @sharer
   end
 
   # POST /sharers
   # POST /sharers.json
   def create
     @sharer = Sharer.new(params[:sharer])
+	authorize! :manage, @sharer
 
     respond_to do |format|
       if @sharer.save
@@ -57,6 +61,7 @@ class SharersController < ApplicationController
   # PUT /sharers/1.json
   def update
     @sharer = Sharer.find(params[:id])
+	authorize! :manage, @sharer
 
     respond_to do |format|
       if @sharer.update_attributes(params[:sharer])
@@ -73,6 +78,7 @@ class SharersController < ApplicationController
   # DELETE /sharers/1.json
   def destroy
     @sharer = Sharer.find(params[:id])
+	authorize! :manage, @sharer
     @sharer.destroy
 
     respond_to do |format|

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
 	  UserMailer.new_user_msg(@user).deliver
 #	  session[:user_id] = @user.id
-      redirect_to home_path, :notice => "#{@user.learner.first_name} has been added as a user and notified by email."
+      redirect_to home_path, :notice => "#{@user.first_name} has been added as a user and notified by email."
     else
       render :action => 'new'
     end
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      redirect_to home_path, :notice => "#{@user.learner.first_name}'s profile has been updated."
+      redirect_to home_path, :notice => "#{@user.first_name}'s profile has been updated."
     else
       render :action => 'edit'
     end

@@ -2,6 +2,7 @@ class WorkshopsController < ApplicationController
   # GET /workshops
   # GET /workshops.json
   before_filter :check_login
+
   def index
     @workshops = Workshop.by_upvotes_size
 
@@ -36,6 +37,7 @@ class WorkshopsController < ApplicationController
   # GET /workshops/1/edit
   def edit
     @workshop = Workshop.find(params[:id])
+	authorize! :manage, @workshop
   end
   
 
@@ -59,6 +61,7 @@ class WorkshopsController < ApplicationController
   # PUT /workshops/1.json
   def update
     @workshop = Workshop.find(params[:id])
+	authorize! :manage, @workshop
 
     respond_to do |format|
       if @workshop.update_attributes(params[:workshop])
@@ -75,6 +78,7 @@ class WorkshopsController < ApplicationController
   # DELETE /workshops/1.json
   def destroy
     @workshop = Workshop.find(params[:id])
+	authorize! :manage, @workshop
     @workshop.destroy
     flash[:notice] = "Successfully removed workshop from the AMC system."
     redirect_to workshops_url
