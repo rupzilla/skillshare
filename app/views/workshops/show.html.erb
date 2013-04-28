@@ -19,11 +19,9 @@
 <hr>
 
 <h4>Tutor Information</h4>
-
-
 <p>
   <b>Tutor:</b>
-  <%= link_to @workshop.sharer.proper_name, sharer_path(@workshop.sharer_id) %></p>
+  <%= link_to @workshop.sharer.first_name, sharer_path(@workshop.sharer_id) %></p>
 
 <p>
   <b>Credentials:</b>
@@ -68,9 +66,8 @@
 
 <hr>
 
-<%= link_to 'Edit', edit_workshop_path(@workshop), :class => 'btn btn-mini' %> |
-<%= link_to 'Back', workshops_path, :class => 'btn btn-mini' %>
+<%= link_to 'Back', sharers_path, :class => 'btn btn-mini' %> 
+
 <br>
 <br>
 </div>
-

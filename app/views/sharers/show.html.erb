@@ -1,31 +1,29 @@
-
+<div class="span8">
 <p id="notice"><%= notice %></p>
 
+<p>
+ <h3><%= @sharer.proper_name %></h3>
+</p>
+
 <!-- <p>
-  <b>User:</b>
-  <%= @sharer.user_id %>
+ <b>User:</b>
+ <%= @sharer.user_id %>
 </p> -->
 
+
 <p>
-  <b>First name:</b>
-  <%= @sharer.first_name %>
+ <b>Credentials:</b>
+ <%= @sharer.credentials %>
 </p>
 
 <p>
-  <b>Last name:</b>
-  <%= @sharer.last_name %>
-</p>
-
-<p>
-  <b>Credentials:</b>
-  <%= @sharer.credentials %>
-</p>
-
-<p>
-  <b>Major:</b>
-  <%= @sharer.major %>
+ <b>Major:</b>
+ <%= @sharer.major %>
 </p>
 
 
-<!-- <%= link_to 'Edit', edit_sharer_path(@sharer) %> | -->
-<!-- <%= link_to 'Back', sharers_path %> -->
+<hr>
+<%= link_to 'Back', sharers_path, :class => 'btn btn-mini' %> 
+<br>
+<br>
+</div>

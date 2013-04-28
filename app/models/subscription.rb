@@ -5,10 +5,10 @@ class Subscription < ActiveRecord::Base
   belongs_to :workshop
   belongs_to :user
 
-  validates_presence_of :user
-  validates_presence_of :workshop
+  validates_presence_of :user, :workshop
   
   validate :no_double_subbing
+#  validate :only_workshops_that_are_active
   
   # Scope
   scope :for_workshop, lambda {|workshop_id| where("workshop_id = ?", workshop_id) }
@@ -21,5 +21,13 @@ class Subscription < ActiveRecord::Base
 			errors.add(:user_id, "has already subscribed to this workshop.")
 		end
 	  end
+	  
+	  # def only_workshops_that_are_active
+		# all_active_ws = Workshop.active.all.map{|w| w.id}
+		# unless all_active_ws.include?(self.workshop_id)
+		  # errors.add(:workshop_id, "has expired and is not subscribable.")
+		# end
+	  # end
+
 
 end

@@ -12,10 +12,11 @@ class HomeController < ApplicationController
 	  @user = current_user
     @subscription = current_user.subscriptions
     @workshops = current_user.workshops
-	if current_user.is_sharer?
-		@workshops_for_sharer = current_user.sharer.workshop
-	end
-    
+    if current_user.is_sharer?
+      @workshops_for_sharer = current_user.sharer.workshop
+    else
+      nil
+    end
 	end
 
   def search

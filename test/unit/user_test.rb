@@ -113,18 +113,5 @@ class UserTest < ActiveSupport::TestCase
 		assert_equal @upvryan, @ryan.get_workshop_upvote(@anima.id)
 	end
 
-	# should "not allow two upvotes to have both the same user and the same workshop" do
-		# upvbaps2 = FactoryGirl.build(:upvote, :user => @barn, :workshop => @adobps)
-		# deny upvbaps2.valid?
-    # end
-
-	should "not have a user subscribed twice for a single workshop" do
-		puts Subscription.for_user(@eman.id).for_workshop(@adobau.id).size
-		@ryansubps2 = Factory.create(:subscription, :workshop => @adobau, :user => @eman)
-		puts Subscription.for_user(@eman.id).for_workshop(@adobau.id).size
-		deny @ryansubps2.valid?
-		@ryansubps2.destroy
-	end
-
    end
 end

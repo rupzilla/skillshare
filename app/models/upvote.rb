@@ -5,8 +5,7 @@ class Upvote < ActiveRecord::Base
   belongs_to :workshop
   belongs_to :user
   
-  validates_presence_of :user
-  validates_presence_of :workshop
+  validates_presence_of :user, :workshop
 
   validate :no_double_upvoting
   

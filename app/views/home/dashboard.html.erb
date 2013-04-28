@@ -19,48 +19,41 @@
 </div>
 
 <div class="span8">
-	<h2>Workshops You Subscribed To</h2>
 
-
-	<table class="table table-striped">
-	  <tr>
-	    <th>Name</th>
-	    <th>Category</th>
-	    <th>Sharer</th>
-	    <th>Start time</th>
-	    <th>End time</th>
-	    <th>Date</th>
-	    <th>Members Attending</th>
-	    <th>Location</th>
-	  </tr>
-
-
-	<% @workshops.each do |workshop| %>
-	  <tr>
-		<td><%= link_to workshop.description, workshop %></td>
-	    <td><%= workshop.category %></td>
-	    <td><%= link_to workshop.sharer.proper_name, sharer_path(workshop.sharer_id)%></td>
-	    <td><%= workshop.start_time.strftime("%I:%M%p") %></td>
-	    <td><%= workshop.end_time.strftime("%I:%M%p") %></td>
-	    <td><%= workshop.date.strftime("%m/%d") %></td>
-	    <td><%= workshop.subscriptions.size %></td>
-	    <td><%= workshop.location %></td>
-
-
-	  </tr>
+	<% if current_user.workshop_subscriptions.size >0 %>
+	
+	<%= render :partial => "subscribed_to" %>
+	
+	<% else %>
+	
+	<h4>
+	 Sign up for a workshop! <%= link_to raw("<i class='icon-plus'></i>"), workshops_path %></h4>
+	<br>
+	
 	<% end %>
-	</table>
+
 	
-	<hr>
 	
-	<% if !current_user.is_sharer?.nil? && current_user.has_workshop?%>
 	
-	<%= render :partial => "workshops_teaching" %>
 	
-	<%else%>
+	
+	
+	<% if current_user.is_sharer? && !current_user.has_workshop? %>
 		
-	<h3> You're not teaching any workshops! </h3>
-	
+		<h3> You're not teaching any workshops! </h3>
+		<%= link_to raw("Create A Workshop"), new_workshop_path, :class => 'btn btn-small btn-success' %>
+		
+	<% elsif current_user.is_sharer? && current_user.has_workshop?%>
+		
+		<%= render :partial => "workshops_teaching" %>
+		
+		
+		
+	<%else%>
+			
+		<h3> You're not a tutor! You can't teach yet! </h3>
+		<%= link_to raw("Become a tutor"), new_sharer_path, :class => 'btn btn-small btn-success' %>
+		
 	<%end%>
 
 </div>

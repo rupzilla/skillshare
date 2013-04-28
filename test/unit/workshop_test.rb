@@ -5,7 +5,10 @@ class WorkshopTest < ActiveSupport::TestCase
 	should have_many(:subscriptions)
 	should have_many(:users).through(:subscriptions)
 	should belong_to(:sharer)
-		
+	
+	should validate_presence_of(:sharer)
+	should validate_presence_of(:description)
+	
 	should allow_value(2.weeks.from_now.to_date).for(:date)
 	should allow_value(1.week.ago.to_date).for(:date)
 	should allow_value(Date.current).for(:date)
@@ -13,7 +16,11 @@ class WorkshopTest < ActiveSupport::TestCase
 	should_not allow_value(nil).for(:date)
 	should_not allow_value("bad").for(:date)
 	should_not allow_value(78).for(:date)
-		
+
+	should allow_value(5).for(:size)
+	should_not allow_value(0).for(:size)
+	should_not allow_value(-3).for(:size)
+	
    # Need to do the rest with a context
    context "Creating three users, three sharers, three workshops, three subscriptions, and four upvotes" do
      # create the objects I want with factories
@@ -59,13 +66,15 @@ class WorkshopTest < ActiveSupport::TestCase
 		assert_equal [3, 1, 0], Workshop.by_upvotes.map{|w| w.upvotes.size}
     end
 	
-	should "test :alphabetical scope" do
-		assert_equal ["Animation", "Audition", "Photoshop"], Workshop.alphabetical{|w| w.description}
-	end
+	# should "test :alphabetical scope" do
+		# assert_equal ["Animation", "Audition", "Photoshop"], Workshop.alphabetical{|w| w.description}
+	# end
 	
 	should "distinguish workshops by activeness; can mess up if alphabetical scope doesn't work" do
-		assert_equal [@anima.id, @adobau.id], Workshop.active.alphabetical{|w| w.id}
-		assert_equal [@adobps], Workshop.inactive.alphabetical{|w| w.id}
+		assert Workshop.active.include?(@anima.id)
+		assert Workshop.active.include?(@adobau.id)
+		assert_equal [@adobps], Workshop.inactive{|w| w.id}
+		deny Workshop.inactive.include?(@anima.id)
 	end
 	
 	should "not have an active workshop with a past date" do

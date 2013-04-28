@@ -24,10 +24,10 @@ class SharersController < ApplicationController
   # GET /sharers/new
   # GET /sharers/new.json
   def new
-     #@user_names = User.all.map{|u| u.proper_name}
      @sharer = Sharer.new
-     #     @c_user = current_user
-     @sharer.user_id = current_user.id
+     @sharer.user_id ||= current_user.id
+     @sharer.first_name ||= current_user.first_name
+     @sharer.last_name ||= current_user.last_name
      #     
      #@sharer.user = User.find(current_user)   
   end
@@ -44,7 +44,7 @@ class SharersController < ApplicationController
 
     respond_to do |format|
       if @sharer.save
-        format.html { redirect_to @sharer, notice: 'Sharer was successfully created.' }
+        format.html { redirect_to @sharer, notice: 'Tutor was successfully created.' }
         format.json { render json: @sharer, status: :created, location: @sharer }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class SharersController < ApplicationController
 
     respond_to do |format|
       if @sharer.update_attributes(params[:sharer])
-        format.html { redirect_to @sharer, notice: 'Sharer was successfully updated.' }
+        format.html { redirect_to @sharer, notice: 'Tutor was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

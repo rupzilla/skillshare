@@ -14,7 +14,6 @@ class Sharer < ActiveRecord::Base
   #Scopes
   scope :search, lambda { |term| joins(:user).where('first_name LIKE ?', "#{term}%").order('first_name') }
   
-  
   # Other methods
   def first_name
 	User.find(self.user_id).first_name

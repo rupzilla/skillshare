@@ -17,6 +17,8 @@ group :development do
 	gem 'wirble'
 end
 
+gem "therubyracer"
+
 # Gems used only in testing
 group :test do
 	gem 'shoulda'
@@ -40,7 +42,6 @@ group :development do
   gem 'meta_request'
 end
 
-gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
