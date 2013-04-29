@@ -13,8 +13,23 @@
  */
 
 body{
-	padding-top: 30px;
-	padding-left: 20px;
-	padding-right: 20px;
-	
+}
+
+.navbar{
+	padding-bottom: 25px;
+}
+.navbar .nav
+{
+    height: 75px;
+}
+.navbar .nav > li {
+	padding-top: 15px;
+}
+
+.btn-group{
+	padding-top: 20px;	
+}
+
+.searchbar{
+	padding-top: 23px;
 }
