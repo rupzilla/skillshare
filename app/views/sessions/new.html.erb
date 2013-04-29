@@ -1,37 +1,53 @@
-<!-- <div class="span12">
+
+<div class="navbar navbar-inverse navbar-static-top"  style="height: 60px">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>
+			<%# link_to "Home", home_path, :class => "brand" %>
+      <div class="nav-collapse">
+        <ul class="nav">
+		  <li><a class="brand" href="home">Scotty Skills</a></li>
+        </ul>
+
+    	</div>
+<div class="pushdown pull-right" style="display: inline-block;">
+			<%= form_tag sessions_path do %>
+
+		          <form>
+
+					      <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
+			  			<%= password_field_tag :password %>
+					<%= submit_tag nil, :value => "Login", :class => 'btn btn-small' %> <%= link_to raw("Sign Up"), new_user_path, :class => 'btn btn-small btn-success' %>
 
 
-<h3> Please Log In</h3>
+		          </form>
+		</div>
 
-<%= form_tag sessions_path do %>
 
-	<div class="control-group">
-    <%= label_tag :email %>
-    <div class="controls">
-      <%= text_field_tag :email, params[:email] %>
+		<% end %>
+
+
+			 
+      </div>
+
     </div>
+
   </div>
 
-	<div class="control-group">
-    <%= label_tag :password %>
-    <div class="controls">
-      <%= password_field_tag :password %>
-    </div>
-  </div>
+<center>
 
-  <div class="actions"><%= submit_tag "Log In" %></div>
-<% end %>
-
-</div> -->
-
-<div class="span6">
-
+<br>
 <div style="text-align: center;">
-<h1><em>Welcome to Scotty Skills! </em></h1>
-<hr>
+<h3>Welcome to Scotty Skills!</h3>
+<h5><em> ~ Scotty Skills is a platform that allows students to connect with students to teach and learn ~ </em></h5>
 </div>
+<br>
 
-				<div id="myCarousel" class="carousel slide" align="center">
+				<div id="myCarousel" class="carousel slide" align="center" style="width: 700px">
 				  <ol class="carousel-indicators">
 				    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				    <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -69,104 +85,8 @@
 				  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 				</div>
 
-</div>
 
 
+</center>
 
 
-
-
-<div class="span6">
-		<br/>
-		<br/>	<br/>
-			<br/>	<br/>
-				<br/>
-				<br/>
-					<br/>
-	<!DOCTYPE html>
-	<html lang="en">
-	  <head>
-	    <meta charset="utf-8">
-	    <title>Bootstrap, from Twitter</title>
-	    <meta name="description" content="">
-	    <meta name="author" content="">
-
-	    <!-- Le styles -->
-	    <link href="../bootstrap.css" rel="stylesheet">
-	    <style type="text/css">
-	      /* Override some defaults */
-	      html, body {
-	        background-color: #eee;
-	      }
-	      body {
-	        padding-top: 40px; 
-	      }
-	      .container {
-	        width: 300px;
-	      }
-
-	      /* The white background content wrapper */
-	      .container > .content {
-	        background-color: #fff;
-	        padding: 20px;
-	        margin: 0 -20px; 
-	        -webkit-border-radius: 10px 10px 10px 10px;
-	           -moz-border-radius: 10px 10px 10px 10px;
-	                border-radius: 10px 10px 10px 10px;
-	        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-	           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-	                box-shadow: 0 1px 2px rgba(0,0,0,.15);
-	      }
-
-		  .login-form {
-			margin-left: 65px;
-		  }
-	
-		  legend {
-			margin-right: -50px;
-			font-weight: bold;
-		  	color: #404040;
-		  }
-
-	    </style>
-	<%= form_tag sessions_path do %>
-	</head>
-	<body>
-	  <div class="container">
-	    <div class="content">
-	      <div class="row">
-	        <div class="login-form">
-	          <h2>Sign In</h2>
-	          <form action="">
-	            <fieldset>
-
-	              <div class="clearfix">
-	                <%= label_tag :email %>
-					<div class="controls">
-				      <%= text_field_tag :email, params[:email] %>
-				    </div>
-	              </div>
-	              <div class="clearfix">
-	                <%= label_tag :password %>
-					<div class="controls">
-				      <%= password_field_tag :password %>
-				    </div>
-	              </div>
-              
-				<div class="actions"><%= submit_tag "Sign In" %> <%= link_to raw("Sign Up"), new_user_path, :class => 'btn btn-small btn-success' %></div>
-		
-
-	            </fieldset>
-	          </form>
-	        </div>
-	      </div>
-	    </div>
-	  </div> <!-- /container -->
-	</body>
-	</html>
-	<% end %>
-	<div align="center">
-		<h1><%= image_tag("scotty_skills.jpg", :width => '100')%></h1>
-		<hr>
-	</div>
-</div>

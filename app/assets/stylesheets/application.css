@@ -12,32 +12,3 @@
  *= require_tree .
  */
 
-body{
-}
-
-.navbar{
-	padding-bottom: 25px;
-}
-.navbar .nav
-{
-    height: 75px;
-}
-.navbar .nav > li {
-	padding-top: 15px;
-}
-
-.btn-group{
-	padding-top: 20px;	
-}
-
-.searchbar{
-	padding-top: 23px;
-}
-
-.fix_links{
-	color: blue;
-}
-
-.lets_align{
-	text-align: center;
-}
