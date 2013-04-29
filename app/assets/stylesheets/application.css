@@ -33,3 +33,11 @@ body{
 .searchbar{
 	padding-top: 23px;
 }
+
+.fix_links{
+	color: blue;
+}
+
+.lets_align{
+	text-align: center;
+}

@@ -1,16 +1,16 @@
-<h2>Workshops You Subscribed To</h2>
+<h4>Workshops You Subscribed To</h4>
 
 
-<table class="table table-striped">
-  <tr>
+<table class="table table-hover">
+  <tr><thead>
     <th>Name</th>
     <th>Category</th>
-    <th>Sharer</th>
-    <th>Start time</th>
-    <th>End time</th>
+    <th>Tutor</th>
+    <th>Time</th>
     <th>Date</th>
     <th>Members Attending</th>
     <th>Location</th>
+	</thead>
   </tr>
 
 
@@ -19,12 +19,10 @@
 	<td><%= link_to workshop.description, workshop %></td>
     <td><%= workshop.category %></td>
     <td><%= link_to workshop.sharer.proper_name, sharer_path(workshop.sharer_id)%></td>
-    <td><%= workshop.start_time.strftime("%I:%M%p") %></td>
-    <td><%= workshop.end_time.strftime("%I:%M%p") %></td>
+    <td><%= workshop.start_time.strftime("%I:%M%p")%>-<%= workshop.end_time.strftime("%I:%M%p") %></td>
     <td><%= workshop.date.strftime("%m/%d") %></td>
     <td><%= workshop.subscriptions.size %></td>
     <td><%= workshop.location %></td>
-
 
   </tr>
 <% end %>

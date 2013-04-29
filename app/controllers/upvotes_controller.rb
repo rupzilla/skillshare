@@ -79,7 +79,7 @@ class UpvotesController < ApplicationController
     @upvote.destroy
 
     respond_to do |format|
-      format.html { redirect_to upvotes_url }
+      format.html { redirect_to workshops_path }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,6 @@
-<div class="span4">
+<div class="span3">
 	
-<h2><%= current_user.proper_name%>'s Dashboard</h2>
+<h3>My Dashboard</h3>
 <hr>
 
 <p><b> Name: </b><%= current_user.proper_name %></p>
@@ -20,8 +20,35 @@
 
 
 </div>
+<div class="span1"></div>
 
 <div class="span8">
+
+	
+	<br>
+	
+	<% if current_user.is_sharer? && !current_user.has_workshop? %>
+		
+		<h4> You are currently not teaching a workshop. </h4>
+
+		<%= link_to raw("Create A Workshop"), new_workshop_path, :class => 'btn btn-small btn-success' %>
+		
+	<% elsif current_user.is_sharer? && current_user.has_workshop?%>
+		
+		<%= render :partial => "workshops_teaching" %>
+		
+		
+		
+	<%else%>
+			
+		<h4> You're not a tutor! You can't teach yet! </h4>
+		<%= link_to raw("Become a tutor"), new_sharer_path, :class => 'btn btn-small btn-success' %>
+		
+	<%end%>
+	<br>
+
+	<br>
+
 
 	<% if current_user.workshop_subscriptions.size >0 %>
 	
@@ -35,26 +62,5 @@
 	
 	<% end %>
 
-	
-	
-	
-	<% if current_user.is_sharer? && !current_user.has_workshop? %>
-		
-		<h3> You are currently not teaching a workshop. </h3>
-
-		<%= link_to raw("Create A Workshop"), new_workshop_path, :class => 'btn btn-small btn-success' %>
-		
-	<% elsif current_user.is_sharer? && current_user.has_workshop?%>
-		
-		<%= render :partial => "workshops_teaching" %>
-		
-		
-		
-	<%else%>
-			
-		<h3> You're not a tutor! You can't teach yet! </h3>
-		<%= link_to raw("Become a tutor"), new_sharer_path, :class => 'btn btn-small btn-success' %>
-		
-	<%end%>
 
 </div>
