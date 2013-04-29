@@ -28,13 +28,15 @@ class UserTest < ActiveSupport::TestCase
      # create the objects I want with factories
     setup do 
 		@ryan = FactoryGirl.create(:user, :first_name => "Ryan", :last_name => "Rowe")
+		@ryantut = FactoryGirl.create(:sharer, :user => @ryan)
 		@barn = FactoryGirl.create(:user, :email => "faraday@example.com")
-		# @barntut = FactoryGirl.create(:sharer, :user => @barn)
+		@barntut = FactoryGirl.create(:sharer, :user => @barn)
 		@eman = FactoryGirl.create(:user, :first_name => "Emannuel", :last_name => "Ruiz", :email => "lavoisier@example.com")
-		# @emantut = FactoryGirl.create(:sharer, :user => @eman)
-		@adobps = FactoryGirl.create(:workshop, :sharer_id => 1)
-		@adobau = FactoryGirl.create(:workshop, :description => "Audition", :sharer_id => 2)
-		@anima = FactoryGirl.create(:workshop, :category => "Art", :description => "Animation", :sharer_id => 3)
+		@rupa = FactoryGirl.create(:user, :first_name => "Rupa", :last_name => "Patel", :email => "marat@example.com")
+		@emantut = FactoryGirl.create(:sharer, :user => @eman)
+		@adobps = FactoryGirl.create(:workshop, :sharer => @ryantut)
+		@adobau = FactoryGirl.create(:workshop, :description => "Audition", :sharer => @barntut)
+		@anima = FactoryGirl.create(:workshop, :category => "Art", :description => "Animation", :sharer => @emantut)
 		@ryansubps = FactoryGirl.create(:subscription, :workshop => @adobps, :user => @ryan)
 		@emansubau = FactoryGirl.create(:subscription, :workshop => @adobau, :user => @eman)
 		@ryansubau = FactoryGirl.create(:subscription, :workshop => @adobau, :user => @ryan)
@@ -48,9 +50,10 @@ class UserTest < ActiveSupport::TestCase
     teardown do
 		@ryan.destroy
 		@barn.destroy
-		# @barntut.destroy
+		@barntut.destroy
 		@eman.destroy
-		# @emantut.destroy
+		@emantut.destroy
+		@rupa.destroy
 		@adobps.destroy
 		@adobau.destroy
 		@anima.destroy
@@ -67,6 +70,13 @@ class UserTest < ActiveSupport::TestCase
 		@repeat_email = FactoryGirl.build(:user, :first_name => "Steve", :last_name => "Crawford", :email => "tesla@example.com")
 		deny @repeat_email.valid?
     end
+	
+    should "determine who is a sharer and who is not" do
+		assert @eman.is_sharer?
+		assert @ryan.is_sharer?
+		assert @barn.is_sharer?
+		deny @rupa.is_sharer?
+    end	
 	
 	# should "correctly identify whether each user is a sharer or not" do
 		# assert_equal true, @barn.is_sharer?

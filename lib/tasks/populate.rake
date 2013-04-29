@@ -178,7 +178,7 @@ namespace :db do
 	application with a working databse. Learn SQL queries. We will work with
 	phpMyAdmin."
 	ws3.description = "Database Design"
-	ws3.save!
+#	ws3.save!
 
 
 	ws4 = Workshop.new
@@ -221,7 +221,7 @@ namespace :db do
 	ws6.location = "CFA Building"
 	ws6.subdescription = "Looking for a place to learn how make some of the best art you've ever seen.  Come to CFA to learn how to finger paint with the latest styles in the art community.  We will have painting professionals to assist in this workshop.  Hope to see you all there!"
 	ws6.description = "Finger Painting"
-	ws6.save!
+#	ws6.save!
 
   # Step 4: Add new Subscription
 	ss = Subscription.new

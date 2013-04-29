@@ -5,11 +5,13 @@ class Sharer < ActiveRecord::Base
   # Relationships
   has_one :workshop
   belongs_to :user
-  has_many :subscriptions, :through => :workshops
+  has_many :subscriptions, :through => :workshop
   
   #validate :only_one_workshop
-  #validates_presence_of :user
-  #validates_uniqueness_of :user
+  validates_presence_of :user
+#  validates_uniqueness_of :user
+  validates_presence_of :credentials
+#  validate :only_one_workshop
   
   #Scopes
   scope :search, lambda { |term| joins(:user).where('first_name LIKE ?', "#{term}%").order('first_name') }
@@ -40,14 +42,5 @@ class Sharer < ActiveRecord::Base
        
   end
 
-  private
-	def only_one_workshop
-		unless self.workshop.nil?
-			ws = Workshop.for_sharer(self.id).active
-			unless ws.size <= 1
-				error.add_to_base("You cannot teach more than one workshops at a time")
-			end
-		end
-	end
 	
 end

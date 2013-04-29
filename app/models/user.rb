@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
     has_many :upvotes
         
     # Validations
-	validates_presence_of :email, :first_name, :last_name
     validates_uniqueness_of :email
     validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
+	validates_presence_of :email, :first_name, :last_name
 	    
     # Other methods
      def proper_name

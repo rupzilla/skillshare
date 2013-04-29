@@ -3,7 +3,7 @@ class CreateUpvotes < ActiveRecord::Migration
     create_table :upvotes do |t|
       t.integer :workshop_id
       t.integer :user_id
-      t.boolean :active
+      t.boolean :active , :default => true
 
       t.timestamps
     end
