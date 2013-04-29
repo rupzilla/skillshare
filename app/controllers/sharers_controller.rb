@@ -26,7 +26,6 @@ class SharersController < ApplicationController
   # GET /sharers/new.json
   def new
      @sharer = Sharer.new
-#	 authorize! :manage, @sharer
      @sharer.user_id ||= current_user.id
      @sharer.first_name ||= current_user.first_name
      @sharer.last_name ||= current_user.last_name

@@ -101,6 +101,7 @@ GEM
     less-rails (2.3.2)
       actionpack (>= 3.1)
       less (~> 2.3.1)
+    libv8 (3.11.8.17)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -184,11 +185,16 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
     sqlite3 (1.3.7-x86-mingw32)
+<<<<<<< HEAD
     tconsole (1.1.1)
       minitest (~> 2.11.0)
       term-ansicolor (~> 1.0.7)
     term-ansicolor (1.0.7)
     therubyracer (0.11.0beta1-x86-mingw32)
+=======
+    therubyracer (0.11.4)
+      libv8 (~> 3.11.8.12)
+>>>>>>> cea9fc4c1e91eba3cba832da4fceff04af437916
       ref
     thor (0.18.0)
     tilt (1.3.6)

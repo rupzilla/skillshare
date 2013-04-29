@@ -14,8 +14,8 @@ class Sharer < ActiveRecord::Base
 #  validate :only_one_workshop
   
   #Scopes
-  scope :search, lambda { |term| joins(:user).where('first_name LIKE ?', "#{term}%").order('first_name') }
-  
+  scope :search, lambda { |term| joins(:user).where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%").order("first_name", "last_name")  }
+
   # Other methods
   def first_name
 	User.find(self.user_id).first_name

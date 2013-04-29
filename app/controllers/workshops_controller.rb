@@ -92,7 +92,5 @@ class WorkshopsController < ApplicationController
     # @upvote.destroy
     # flash[:notice] = "Successfully took away your vote from workshop."
     # redirect_to workshops_url
-    
-   
   end
 end

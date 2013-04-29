@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :interests
+    attr_accessible :email, :password, :first_name, :last_name, :interests
     has_secure_password
 	
 	# Callbacks
@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     has_many :subscriptions
     has_many :workshops, :through => :subscriptions
     has_many :upvotes
+    #has_secure_password
         
     # Validations
     validates_uniqueness_of :email
@@ -46,41 +47,15 @@ class User < ActiveRecord::Base
             return true
           end
       end
+   
       
-      # def match_id
-      #      for user.id in upvotes 
-      #        id1 = user.id
-      #        if id1 = self.id
-      #          return true
-      #        else
-      #          return nil
-      #        end
-      #      end
-        
       def workshop_upvotes
-        # if match_id true
-        #          self.upvotes.map{|u| u.workshop.id}
-        #        else
-        #          return nil
-        #        end
-        #      end
-        
-      
         self.upvotes.map{|u| u.workshop.id} 
                  
       end
       
       def workshop_subscriptions
-        # if match_id true
-        #          self.upvotes.map{|u| u.workshop.id}
-        #        else
-        #          return nil
-        #        end
-        #      end
-        
-      
-        self.subscriptions.map{|s| s.workshop.id}
-                 
+        self.subscriptions.map{|s| s.workshop.id}                  
       end
       
       def get_workshop_subscription(workshop_id)
