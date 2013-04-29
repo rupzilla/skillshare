@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326230026) do
+ActiveRecord::Schema.define(:version => 20130429173712) do
 
   create_table "learners", :force => true do |t|
     t.integer  "user_id"
@@ -25,8 +25,6 @@ ActiveRecord::Schema.define(:version => 20130326230026) do
 
   create_table "sharers", :force => true do |t|
     t.integer  "user_id"
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "credentials"
     t.string   "major"
     t.datetime "created_at",  :null => false
@@ -44,9 +42,9 @@ ActiveRecord::Schema.define(:version => 20130326230026) do
   create_table "upvotes", :force => true do |t|
     t.integer  "workshop_id"
     t.integer  "user_id"
-    t.boolean  "active"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "active",      :default => true
   end
 
   create_table "users", :force => true do |t|
@@ -58,13 +56,11 @@ ActiveRecord::Schema.define(:version => 20130326230026) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "interests"
-    t.string   "major"
   end
 
   create_table "workshops", :force => true do |t|
     t.integer  "sharer_id"
     t.integer  "learner_id"
-    t.boolean  "active"
     t.datetime "start_time"
     t.datetime "end_time"
     t.date     "date"
@@ -73,8 +69,9 @@ ActiveRecord::Schema.define(:version => 20130326230026) do
     t.string   "location"
     t.string   "subdescription"
     t.string   "description"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "active",         :default => true
   end
 
 end

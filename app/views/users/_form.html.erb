@@ -11,23 +11,36 @@
     </div>
   <% end %>
 
-<p>
-    <%= f.label :first_name, "First Name" %>
+  <div class="field">
+    <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
-  </p>
-<p>
-    <%= f.label :last_name, "Last Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
-  </p>
-
-<p>
-    <%= f.label :email, "Email Address" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email %><br />
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </p>
+  </div>
 
-  <p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>	
+  <div class="field">
+    <%= f.label :interests %><br />
+    <%= f.text_area :interests, :size => "24x6" %>
+  </div>
+
+<br>
+<br>
+  <% if @user.new_record? %>
+	  <div class="field">
+		<%= f.label :password %><br />
+		<%= f.password_field :password %>
+	  </div>
+  <% end %>
+	  
+  <div class="actions">
+    <%= f.submit (@user.new_record? ? "Sign up" : "Update") %>
+  </div>
 <% end %>

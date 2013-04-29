@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    addressable (2.2.7)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
@@ -38,6 +39,15 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
     cancan (1.6.9)
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+    childprocess (0.3.1)
+      ffi (~> 1.0.6)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -47,12 +57,35 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     commonjs (0.2.6)
+    cucumber (1.1.9)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.2)
+      gherkin (~> 2.9.0)
+      json (>= 1.4.6)
+      term-ansicolor (>= 1.0.6)
+    cucumber-rails (1.3.0)
+      capybara (>= 1.1.2)
+      cucumber (>= 1.1.8)
+      nokogiri (>= 1.5.0)
+    database_cleaner (0.7.1)
     debug_inspector (0.0.2)
+    diff-lcs (1.1.3)
+    email_spec (1.2.1)
+      mail (~> 2.2)
+      rspec (~> 2.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (2.6.3)
+      activesupport (>= 2.3.9)
+    factory_girl_rails (1.7.0)
+      factory_girl (~> 2.6.0)
+      railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
+    ffi (1.0.11)
+    gherkin (2.9.0-x86-mingw32)
+      json (>= 1.4.6)
     hike (1.2.1)
     hirb (0.7.1)
     i18n (0.6.4)
@@ -61,6 +94,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
     less (2.3.1)
       commonjs (~> 0.2.6)
     less-rails (2.3.2)
@@ -74,8 +109,13 @@ GEM
     meta_request (0.2.3)
       rack-contrib
       railties
+    metaclass (0.0.1)
     mime-types (1.21)
+    minitest (2.11.3)
+    mocha (0.10.5)
+      metaclass (~> 0.0.1)
     multi_json (1.7.2)
+    nokogiri (1.5.2-x86-mingw32)
     polyglot (0.3.3)
     populator3 (0.2.7)
     quiet_assets (1.0.2)
@@ -108,25 +148,57 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.4)
+    rspec (2.8.0)
+      rspec-core (~> 2.8.0)
+      rspec-expectations (~> 2.8.0)
+      rspec-mocks (~> 2.8.0)
+    rspec-core (2.8.0)
+    rspec-expectations (2.8.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.8.0)
+    rubyzip (0.9.6.1)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    selenium-webdriver (2.20.0)
+      childprocess (>= 0.2.5)
+      ffi (~> 1.0)
+      multi_json (~> 1.0)
+      rubyzip
+    shoulda (3.0.1)
+      shoulda-context (~> 1.0.0)
+      shoulda-matchers (~> 1.0.0)
+    shoulda-context (1.0.0)
+    shoulda-matchers (1.0.0)
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    simplecov (0.6.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.5.3)
+    simplecov-html (0.5.3)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
     sqlite3 (1.3.7-x86-mingw32)
+<<<<<<< HEAD
+    tconsole (1.1.1)
+      minitest (~> 2.11.0)
+      term-ansicolor (~> 1.0.7)
+    term-ansicolor (1.0.7)
+    therubyracer (0.11.0beta1-x86-mingw32)
+=======
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
+>>>>>>> cea9fc4c1e91eba3cba832da4fceff04af437916
       ref
     thor (0.18.0)
     tilt (1.3.6)
+    timeliness (0.3.4)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
@@ -138,7 +210,11 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    validates_timeliness (3.0.8)
+      timeliness (~> 0.3.4)
     wirble (0.1.3)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -149,19 +225,32 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   cancan
+  capybara
   coffee-rails (~> 3.2.1)
+  cucumber-rails
+  database_cleaner
+  email_spec
+  factory_girl_rails
   faker
   hirb
   jquery-rails
+  launchy
   less-rails
   meta_request
+  mocha
+  nokogiri
   populator3
   quiet_assets
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
+  shoulda
+  shoulda-matchers
   simple_form
+  simplecov
   sqlite3
+  tconsole (= 1.1.1)
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  validates_timeliness (= 3.0.8)
   wirble

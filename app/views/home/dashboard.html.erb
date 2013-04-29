@@ -5,10 +5,11 @@
 
 <p><b> Name: </b><%= current_user.proper_name %></p>
 <p><b> Interests: </b><%= current_user.interests %></p>
-<p><b> Major: </b><%= current_user.major %></p>
+<% unless current_user.major.nil? %>
+	<p><b> Major: </b><%= current_user.major %></p>
+<% end %>
 
-<!-- <h4> Edit your profile:</h4> <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_user_path(current_user) %> -->
-
+<%= link_to raw("<i class='icon-pencil'></i> Edit my info"), edit_user_path(current_user) %>
 
 
 
@@ -37,12 +38,10 @@
 	
 	
 	
-	
-	
-	
 	<% if current_user.is_sharer? && !current_user.has_workshop? %>
 		
-		<h3> You're not teaching any workshops! </h3>
+		<h3> You are currently not teaching a workshop. </h3>
+
 		<%= link_to raw("Create A Workshop"), new_workshop_path, :class => 'btn btn-small btn-success' %>
 		
 	<% elsif current_user.is_sharer? && current_user.has_workshop?%>

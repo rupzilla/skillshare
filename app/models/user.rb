@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
-    attr_accessible :email, :password, :first_name, :last_name
+    attr_accessible :email, :password, :first_name, :last_name, :interests
     has_secure_password
+	
+	# Callbacks
+#	before_save :no_double_subbing
 
     # Relationship
     has_one :sharer
@@ -12,7 +15,8 @@ class User < ActiveRecord::Base
     # Validations
     validates_uniqueness_of :email
     validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
-    
+	validates_presence_of :email, :first_name, :last_name
+	    
     # Other methods
      def proper_name
        "#{first_name} #{last_name}"
@@ -27,6 +31,12 @@ class User < ActiveRecord::Base
         return true
        end
      end
+	 
+	 def major
+		unless self.sharer.nil?
+			self.sharer.major
+		end
+	 end
 
       def has_workshop?
           sharer_has_workshop = self.sharer.has_workshop?
@@ -45,8 +55,7 @@ class User < ActiveRecord::Base
       end
       
       def workshop_subscriptions
-        self.subscriptions.map{|s| s.workshop.id} 
-                 
+        self.subscriptions.map{|s| s.workshop.id}                  
       end
       
       def get_workshop_subscription(workshop_id)
@@ -68,7 +77,5 @@ class User < ActiveRecord::Base
         end
         nil
       end
-      
-
-  
+      	  
   end

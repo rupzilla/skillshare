@@ -32,7 +32,7 @@ SkillShare::Application.routes.draw do
 
 
     # Set the root url
-    root :to => 'sessions#new'
+    root :to => 'home#index'
 
 end
 

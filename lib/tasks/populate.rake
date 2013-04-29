@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
 
     # Step 0: clear any old data in the db
-    [Learner, Sharer, Upvote, Subscription, Workshop, User].each(&:delete_all)
+    [Sharer, Upvote, Subscription, Workshop, User].each(&:delete_all)
 
 	
   	#Step 1: Add users
@@ -25,7 +25,7 @@ namespace :db do
     ru.first_name = "Rupa"
     ru.last_name = "Patel"
     ru.interests = "Life Coach, Boss"
-    ru.major = "Information Systems"
+#	ru.major = "Information Systems"
     ru.save!
 
 
@@ -36,7 +36,7 @@ namespace :db do
     eu.first_name = "Emmanuel"
     eu.last_name = "Ruiz"
     eu.interests = "Adobe After Effects, Maya 3d Applications"
-    eu.major = "Information Systems"
+#	eu.major = "Information Systems"
     eu.save!
 
     bu = User.new
@@ -46,7 +46,7 @@ namespace :db do
     bu.first_name = "Barnik"
     bu.last_name = "Saha"
     bu.interests = "Adobe Photoshop, Adobe Illustrator"
-    bu.major = "Information Systems"
+#	bu.major = "Information Systems"
     bu.save!
 
 
@@ -57,73 +57,82 @@ namespace :db do
     ju.first_name = "Juhee"
     ju.last_name = "Song"
     ju.interests = "Adobe After Effects, Microsoft Office Suite"
-    ju.major = "Information Systems"
+#	ju.major = "Information Systems"
     ju.save!
 
 
-    ru = User.new
-    ru.active = true
-    ru.email = "ryan@gmail.com"
-    ru.password = "skillshare"
-    ru.first_name = "Ryan"
-    ru.last_name = "Rowe"
-    ru.interests = "iPhone Development, Chemical extraction"
-    ru.major = "Information Systems"
-    ru.save!
+    ryu = User.new
+    ryu.active = true
+    ryu.email = "ryan@gmail.com"
+    ryu.password = "skillshare"
+    ryu.first_name = "Ryan"
+    ryu.last_name = "Rowe"
+    ryu.interests = "iPhone Development, Chemical extraction"
+#	ryu.major = "Information Systems"
+    ryu.save!
 
+    du = User.new
+    du.active = true
+    du.email = "drew@gmail.com"
+    du.password = "skillshare"
+    du.first_name = "Drew"
+    du.last_name = "James"
+    du.interests = "Computer puppets and dummies"
+#	du.major = "Computer Science"
+    du.save!
+
+    mu = User.new
+	mu.active = true
+    mu.email = "mike@gmail.com"
+    mu.password = "skillshare"
+    mu.first_name = "Michael"
+    mu.last_name = "Snipes"
+    mu.interests = "Abstract pancake-making"
+#	mu.major = "CFA"
+    mu.save!
+	
     #Step 2: Make some Sharers
 
     js = Sharer.new
     js.user_id = bu.id
-    js.first_name = "Barnik"
-    js.last_name = "Saha"
+#	js.first_name = "Barnik"
+#	js.last_name = "Saha"
     js.credentials = "Policy club, Sports referee "
     js.major = "Internation Relations"
     js.save!
     
     
     ry = Sharer.new
-    ry.user_id = ru.id
-    ry.first_name = "Ryan"
-    ry.last_name = "Rowe"
+    ry.user_id = ryu.id
+#	ry.first_name = "Ryan"
+#	ry.last_name = "Rowe"
     ry.credentials = "Sports"
     ry.major = "Information Systems"
     ry.save!
 
     rs = Sharer.new
     rs.user_id = ru.id
-    rs.first_name = "Rupa"
-    rs.last_name = "Patel"
+#	rs.first_name = "Rupa"
+#	rs.last_name = "Patel"
     rs.credentials = "Cluster Consultant, Chef "
     rs.major = "Information Systems"
     rs.save!
 
     ds = Sharer.new
-    ds.first_name = "Drew"
-    ds.last_name = "James"
+	ds.user_id = du.id
+#	ds.first_name = "Drew"
+#	ds.last_name = "James"
     ds.credentials = "HTML5 Web Developer, e-Commerce & Online Business "
     ds.major = "Computer Science"
     ds.save!
 
     ms = Sharer.new
-    ms.first_name = "Michael"
-    ms.last_name = "Snipes"
+	ms.user_id = mu.id
+#	ms.first_name = "Michael"
+#	ms.last_name = "Snipes"
     ms.credentials = "Free Style Painting, Music Engineering, Professional Writing for Dr. Suess "
     ms.major = "CFA"
     ms.save!
-  
-    
-  # Step 2a: Add new Upvote
-  # uv = Upvote.new
-  # uv.active = true
-  # uv.save!
-
-
-	# Step 2a: Add new Subscription
-  # ss = Subscription.new
-  # ss.active = true
-  # ss.workshop_id = ss.id
-  # ss.save!
 
 	#Step 3: Make some Workshops
 
@@ -158,7 +167,7 @@ namespace :db do
 
 	ws3 = Workshop.new
 	ws3.sharer_id = ds.id
-	ws3.active = true
+	ws3.active = false
 	ws3.start_time = "13:30:00"
 	ws3.end_time = "14:30:00"
 	ws3.date = "1995-01-25"
@@ -169,7 +178,7 @@ namespace :db do
 	application with a working databse. Learn SQL queries. We will work with
 	phpMyAdmin."
 	ws3.description = "Database Design"
-	ws3.save!
+#	ws3.save!
 
 
 	ws4 = Workshop.new
@@ -201,11 +210,9 @@ namespace :db do
 	ws5.description = "Intro to Psychology"
 	ws5.save!
 
-
-
 	ws6 = Workshop.new
 	ws6.sharer_id = ms.id
-	ws6.active = true
+	ws6.active = false
 	ws6.start_time = "15:00:00"
 	ws6.end_time = "16:00:00"
 	ws6.date = "2013-02-19"
@@ -214,10 +221,22 @@ namespace :db do
 	ws6.location = "CFA Building"
 	ws6.subdescription = "Looking for a place to learn how make some of the best art you've ever seen.  Come to CFA to learn how to finger paint with the latest styles in the art community.  We will have painting professionals to assist in this workshop.  Hope to see you all there!"
 	ws6.description = "Finger Painting"
-	ws6.save!
+#	ws6.save!
 
+  # Step 4: Add new Subscription
+	ss = Subscription.new
+	ss.active = true
+	ss.workshop_id = ws2.id
+	ss.user_id = ju.id
+	ss.save!
   
   #Step 5: Add upvotes
+	uv = Upvote.new
+	uv.workshop_id = ws1.id
+	uv.user_id = ju.id
+	uv.active = true
+	uv.save!
+
   # uv1 = Upvote.new
   # uv1.active = true
   # uv1.workshop = ws6

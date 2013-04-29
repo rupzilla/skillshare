@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'simple_form'
+gem 'validates_timeliness', '3.0.8'
 
 # Gems used only in development
 group :development do
@@ -16,6 +17,24 @@ group :development do
 	gem 'wirble'
 end
 
+gem "therubyracer"
+
+# Gems used only in testing
+group :test do
+	gem 'shoulda'
+	gem 'shoulda-matchers'
+	gem 'factory_girl_rails'
+	gem 'mocha'
+	gem 'cucumber-rails'
+	gem 'capybara'
+	gem 'database_cleaner'
+	gem 'launchy'
+	gem 'email_spec'
+	gem 'nokogiri'
+	gem 'simplecov'
+	gem 'tconsole', '1.1.1'
+end
+
 group :development do
   gem 'quiet_assets'
   gem 'better_errors'
@@ -23,7 +42,6 @@ group :development do
   gem 'meta_request'
 end
 
-gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 

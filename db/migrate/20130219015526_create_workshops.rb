@@ -3,7 +3,7 @@ class CreateWorkshops < ActiveRecord::Migration
     create_table :workshops do |t|
       t.integer :sharer_id
       t.integer :learner_id
-      t.boolean :active
+      t.boolean :active, :default => true
       t.datetime :start_time
       t.datetime :end_time
       t.date :date
