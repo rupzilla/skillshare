@@ -99,10 +99,70 @@ namespace :db do
         xs.last_name = "Johnson"
         xs.interests = "Glass-blowing"
         xs.save!
+        
+        ae = User.new
+        ae.active = true
+        ae.email = "einstein@gmail.com"
+        ae.password = "skillshare"
+        ae.first_name = "Albert"
+        ae.last_name = "Einstein"
+        ae.interests = "Violins flying at the speed of light"
+        ae.save!
+        
+        nt = User.new
+        nt.active = true
+        nt.email = "tesla@gmail.com"
+        nt.password = "skillshare"
+        nt.first_name = "Nikola"
+        nt.last_name = "Tesla"
+        nt.interests = "Wireless energy"
+        nt.save!
+        
+        bp = User.new
+        bp.active = true
+        bp.email = "bob@gmail.com"
+        bp.password = "skillshare"
+        bp.first_name = "Bob"
+        bp.last_name = "Parker"
+        bp.interests = "Long walks on the beach"
+        bp.save!
+        
+        sp = User.new
+        sp.active = true
+        sp.email = "sean@gmail.com"
+        sp.password = "skillshare"
+        sp.first_name = "Sean"
+        sp.last_name = "Parker"
+        sp.interests = "Solar energy"
+        sp.save!
+
   
   
     #Step 2: Make some Sharers
 
+    bps = Sharer.new
+    bps.user_id = bp.id
+    bps.credentials = "Worked at Apple"
+    bps.major = "Physics"
+    bps.save!
+
+    sps = Sharer.new
+    sps.user_id = sp.id
+    sps.credentials = "Stuff"
+    sps.major = "moar stuff"
+    sps.save!
+
+    aes = Sharer.new
+    aes.user_id = ae.id
+    aes.credentials = "E=mc2"
+    aes.major = "Science"
+    aes.save!
+
+    nts = Sharer.new
+    nts.user_id = nt.id
+    nts.credentials = "Stuff"
+    nts.major = "moar stuff"
+    nts.save!
 
         xsh = Sharer.new
         xsh.user_id = xs.id
@@ -152,7 +212,67 @@ namespace :db do
     ms.save!
 
 	#Step 3: Make some Workshops
-
+  
+  
+  ws7 = Workshop.new
+	ws7.sharer_id = nts.id
+	ws7.active = true
+	ws7.start_time = "21:30:00"
+	ws7.end_time = "22:30:00"
+	ws7.date = "1993-01-25"
+	ws7.size = "15"
+	ws7.category = "Science"
+	ws7.location = "Baker Hall"
+	ws7.subdescription = "We work hard play hard with physics. Learn everything you
+	want with Physics 2"
+	ws7.description = "Physics Lab 2"
+	ws7.save!
+	
+	ws8 = Workshop.new
+	ws8.sharer_id = aes.id
+	ws8.active = true
+	ws8.start_time = "21:30:00"
+	ws8.end_time = "22:30:00"
+	ws8.date = "1993-01-25"
+	ws8.size = "15"
+	ws8.category = "Engineering"
+	ws8.location = "Baker Hall"
+	ws8.subdescription = "Intro for all engineering majors"
+	ws8.description = "Engineering 101"
+	ws8.save!
+	
+	
+	ws9 = Workshop.new
+	ws9.sharer_id = bps.id
+	ws9.active = true
+	ws9.start_time = "21:30:00"
+	ws9.end_time = "22:30:00"
+	ws9.date = "1993-01-25"
+	ws9.size = "15"
+	ws9.category = "Longboarding"
+	ws9.location = "Schenley Park"
+	ws9.subdescription = "Let your hair down and bring out your board!"
+	ws9.description = "Longboarding"
+	ws9.save!
+	
+	
+	ws10 = Workshop.new
+	ws10.sharer_id = sps.id
+	ws10.active = true
+	ws10.start_time = "21:30:00"
+	ws10.end_time = "22:30:00"
+	ws10.date = "1993-01-25"
+	ws10.size = "15"
+	ws10.category = "Science"
+	ws10.location = "Baker Hall"
+	ws10.subdescription = "We work hard play hard with chemistry. Learn everything you
+	want with chemistry 2"
+	ws10.description = "Chemistry Lab 2"
+	ws10.save!
+	
+	
+	
+	
 
 	wsp = Workshop.new
 	wsp.sharer_id = xsh.id

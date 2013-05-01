@@ -3,7 +3,7 @@ class SharersController < ApplicationController
   # GET /sharers.json
 
   def index
-    @sharers = Sharer.all
+    @sharers = Sharer.alphabetical.paginate(:page => params[:page]).per_page(7)
 
     respond_to do |format|
       format.html # index.html.erb

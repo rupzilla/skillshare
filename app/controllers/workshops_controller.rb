@@ -4,7 +4,7 @@ class WorkshopsController < ApplicationController
   before_filter :check_login
 
   def index
-    @workshops = Workshop.by_upvotes_size.paginate(:page => params[:page]).per_page(10)
+    @workshops = Workshop.by_upvotes_size.paginate(:page => params[:page]).per_page(7)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,7 +1,10 @@
 <div class="span12">
 	<h3> Workshops</h3>
 	<br>
-
+<% if @workshops.size == 0 %>
+	<h5>No One Is Currently Teaching A Workshop</h5>
+	<p>Go to your dashboard and sign up to be a tutor and create a workshop!</p>
+<% end %>
 <table class="table	table-hover">
   <tr><thead>
 	<th></th>
