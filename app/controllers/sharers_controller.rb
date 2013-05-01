@@ -27,9 +27,10 @@ class SharersController < ApplicationController
   def new
      @sharer = Sharer.new
      @sharer.user_id ||= current_user.id
-     @sharer.first_name ||= current_user.first_name
-     @sharer.last_name ||= current_user.last_name
-     #     
+     # @sharer[:user_id] = current_user.id
+     # @sharer.first_name ||= current_user.first_name
+     #      @sharer.last_name ||= current_user.last_name
+     #      #     
      #@sharer.user = User.find(current_user)   
   end
 
@@ -43,7 +44,9 @@ class SharersController < ApplicationController
   # POST /sharers.json
   def create
     @sharer = Sharer.new(params[:sharer])
-	authorize! :manage, @sharer
+    @sharer.user_id ||= current_user.id
+    @sharer[:user_id] = current_user.id
+  # authorize! :manage, @sharer
 
     respond_to do |format|
       if @sharer.save
@@ -60,7 +63,7 @@ class SharersController < ApplicationController
   # PUT /sharers/1.json
   def update
     @sharer = Sharer.find(params[:id])
-	authorize! :manage, @sharer
+  authorize! :manage, @sharer
 
     respond_to do |format|
       if @sharer.update_attributes(params[:sharer])
