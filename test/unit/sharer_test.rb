@@ -53,6 +53,10 @@ class SharerTest < ActiveSupport::TestCase
 		# assert_equal [2, 1], Sharer.by_workshops.map{|s| s.workshops.all.size}
 	# end
 
+	should "test :alphabetical scope" do
+		assert_equal [@rupatut.id, @ryantut.id, @emantut.id], Sharer.alphabetical.map{|s| s.id}
+	end
+	
 	should "test proper_name function (and other name functions, briefly)" do
 		assert_equal "Emannuel Ruiz", @emantut.proper_name
 		assert_equal "Rupa", @rupatut.first_name

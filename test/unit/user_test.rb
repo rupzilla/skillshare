@@ -28,21 +28,23 @@ class UserTest < ActiveSupport::TestCase
      # create the objects I want with factories
     setup do 
 		@ryan = FactoryGirl.create(:user, :first_name => "Ryan", :last_name => "Rowe")
-		@ryantut = FactoryGirl.create(:sharer, :user => @ryan)
+		@ryantut = FactoryGirl.create(:sharer, :user => @ryan, :major => "Stick Figure Drawing")
 		@barn = FactoryGirl.create(:user, :email => "faraday@example.com")
 		@barntut = FactoryGirl.create(:sharer, :user => @barn)
 		@eman = FactoryGirl.create(:user, :first_name => "Emannuel", :last_name => "Ruiz", :email => "lavoisier@example.com")
 		@rupa = FactoryGirl.create(:user, :first_name => "Rupa", :last_name => "Patel", :email => "marat@example.com")
-		@emantut = FactoryGirl.create(:sharer, :user => @eman)
-		@adobps = FactoryGirl.create(:workshop, :sharer => @ryantut)
+		@me = FactoryGirl.create(:user, :first_name => "Juhee", :last_name => "Song", :email => "wizard@example.com")
+		@metut = FactoryGirl.create(:sharer, :user => @me)
+		@emantut = FactoryGirl.create(:sharer, :user => @eman, :major => "Balloon Modeling")
+		@adobps = FactoryGirl.create(:workshop, :sharer => @emantut)
 		@adobau = FactoryGirl.create(:workshop, :description => "Audition", :sharer => @barntut)
-		@anima = FactoryGirl.create(:workshop, :category => "Art", :description => "Animation", :sharer => @emantut)
+		@anima = FactoryGirl.create(:workshop, :category => "Art", :description => "Animation", :sharer => @ryantut)
 		@ryansubps = FactoryGirl.create(:subscription, :workshop => @adobps, :user => @ryan)
 		@emansubau = FactoryGirl.create(:subscription, :workshop => @adobau, :user => @eman)
 		@ryansubau = FactoryGirl.create(:subscription, :workshop => @adobau, :user => @ryan)
 		@upvbaps = FactoryGirl.create(:upvote, :user => @barn, :workshop => @adobps)
 		@upvryps = FactoryGirl.create(:upvote, :user => @ryan, :workshop => @adobps)
-		@upvemps = FactoryGirl.create(:upvote, :user => @eman, :workshop => @adobps)
+		@upvrups = FactoryGirl.create(:upvote, :user => @rupa, :workshop => @adobps)
 		@upvryan = FactoryGirl.create(:upvote, :user => @ryan, :workshop => @anima)
     end
 
@@ -62,7 +64,7 @@ class UserTest < ActiveSupport::TestCase
 		@ryansubau.destroy
 		@upvbaps.destroy
 		@upvryps.destroy
-		@upvemps.destroy
+		@upvrups.destroy
 		@upvryan.destroy
     end
 	
@@ -94,12 +96,27 @@ class UserTest < ActiveSupport::TestCase
 		assert_equal "Emannuel Ruiz", @eman.proper_name
 	end
 	
+	should "test major function" do
+		assert_equal "Information Systems", @barn.major
+		assert_equal "Balloon Modeling", @eman.major
+		assert_equal "Stick Figure Drawing", @ryan.major
+		assert_equal nil, @rupa.major
+	end
+
+	should "test has_workshop function" do
+		assert @barn.has_workshop?
+		assert @eman.has_workshop?
+		deny @rupa.has_workshop?
+		deny @me.has_workshop?
+	end
+
+	
 	should "test workshop_upvotes function" do
 		assert @ryan.workshop_upvotes.include?(@adobps.id)
 		assert @ryan.workshop_upvotes.include?(@anima.id)
 		assert_equal 2, @ryan.workshop_upvotes.size
 		assert_equal [@adobps.id], @barn.workshop_upvotes
-		assert_equal [@adobps.id], @eman.workshop_upvotes
+		assert_equal [@adobps.id], @rupa.workshop_upvotes
 	end
 
 	should "test workshop_subscriptions function" do
@@ -118,7 +135,7 @@ class UserTest < ActiveSupport::TestCase
 
 	should "test get_workshop_upvote function" do
 		assert_equal @upvbaps, @barn.get_workshop_upvote(@adobps.id)
-		assert_equal @upvemps, @eman.get_workshop_upvote(@adobps.id)
+		assert_equal @upvrups, @rupa.get_workshop_upvote(@adobps.id)
 		assert_equal @upvryps, @ryan.get_workshop_upvote(@adobps.id)
 		assert_equal @upvryan, @ryan.get_workshop_upvote(@anima.id)
 	end

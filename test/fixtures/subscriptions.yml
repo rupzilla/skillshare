@@ -3,9 +3,9 @@
 one:
   workshop_id: 1
   user_id: 1
-  active: false
+  active: true
 
 two:
   workshop_id: 1
   user_id: 1
-  active: false
+  active: true

@@ -285,7 +285,7 @@ namespace :db do
 	wsp.location = "Baker Hall"
 	wsp.subdescription = "We work hard play hard with chemistry. Learn everything you
 	want with chemistry 2"
-	wsp.description = "Chemistry Lab 2"
+	wsp.description = "Chemistry Lab 3"
 	wsp.save!
 
 

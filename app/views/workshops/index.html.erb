@@ -28,13 +28,13 @@
   <tr>
    <% if workshop.active == true %>
 	<td>
-		<%= workshop.upvotes.size %>
+		<center><%= workshop.upvotes.size %></center>
 		<% if current_user.has_workshop? && workshop == current_user.sharer.workshop%>
 		
 		<%else%>
 		<% if current_user.workshop_upvotes.include?(workshop.id) %>
 			
-			<%= link_to raw("<i class='icon-chevron-down'></i>"), upvote_path(current_user.get_workshop_upvote(workshop.id)), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn btn-warning' %>
+			<%= link_to raw("<i class='icon-chevron-down'></i>"), upvote_path(current_user.get_workshop_upvote(workshop.id)), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn btn-info' %>
 		<% else %>	
 			<%= render :partial => "upvote_form", :locals => {:workshop => workshop} %>
 		<% end %>
@@ -56,6 +56,7 @@
 	<td><%#= link_to raw("Subscribe"), subscriptions_path, :class => 'btn btn-mini btn btn-info' %>
 		<% if current_user.has_workshop? && workshop == current_user.sharer.workshop%>
 
+ <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_workshop_path(workshop), :class => 'btn btn-small' %>
 		<% else %>
 		<% if current_user.workshop_subscriptions.include?(workshop.id) %>
 			

@@ -3,7 +3,7 @@
 one:
   sharer_id: 1
   learner_id: 1
-  active: false
+  active: true
   start_time: 2013-02-18 20:55:26
   end_time: 2013-02-18 20:55:26
   date: 2013-02-18
@@ -16,7 +16,7 @@ one:
 two:
   sharer_id: 1
   learner_id: 1
-  active: false
+  active: true
   start_time: 2013-02-18 20:55:26
   end_time: 2013-02-18 20:55:26
   date: 2013-02-18

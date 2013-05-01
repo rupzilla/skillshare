@@ -12,7 +12,7 @@ class Workshop < ActiveRecord::Base
   validates_numericality_of :size, :only_integer => true, :greater_than => 0
   validates_presence_of :sharer
   validates_presence_of :description
-  validate :only_one_workshop
+  validate :only_one_workshop, :on => :create
 #  validates_date :date, :after => lambda{Date.current}#, :unless => :active == false
 # validates_uniqueness_of :sharer
   
@@ -32,19 +32,19 @@ class Workshop < ActiveRecord::Base
   scope :search, lambda { |term| where('description LIKE ?', "#{term}%").order("description") }
 
   private
-	def delete_sub_upv
-#		if !self.active
-		Subscription.destroy_all "workshop_id = #{self.workshop_id}"
-		Upvote.destroy_all "workshop_id = #{self.workshop_id}"
-#		end
-	end
-
 	def only_one_workshop
 		all_ws = Workshop.for_sharer(self.sharer_id).active
 		if all_ws.size >= 1 then
 			errors.add(:sharer_id, "is already teaching a workshop.")
 		end
 	end
+
+  # def delete_sub_upv
+# #		if !self.active
+		# Subscription.destroy_all "workshop_id = #{self.id}"
+		# Upvote.destroy_all "workshop_id = #{self.id}"
+# #		end
+	# end
 
   #scope :by_upvotes_size, joins(:upvotes).group(:workshop_id).order('COUNT(workshop_id) DESC')
   #default_scope :order => "upvotes_count DESC"

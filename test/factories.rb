@@ -17,7 +17,7 @@ FactoryGirl.define do
 	association :user
 	credentials "Tech. consulting, chef"
 	major "Information Systems"
-    active true
+#    active true
   end
   
   factory :subscription do

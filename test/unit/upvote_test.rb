@@ -12,13 +12,14 @@ class UpvoteTest < ActiveSupport::TestCase
      # create the objects I want with factories
     setup do 
 		@ryan = FactoryGirl.create(:user, :first_name => "Ryan", :last_name => "Rowe")
+		@ryantut = FactoryGirl.create(:sharer, :user => @ryan)
 		@eman = FactoryGirl.create(:user, :first_name => "Emannuel", :last_name => "Ruiz", :email => "faraday@example.com")
-		# @emantut = FactoryGirl.create(:sharer, :user => @eman)
+		@emantut = FactoryGirl.create(:sharer, :user => @eman)
 		@rupa = FactoryGirl.create(:user, :first_name => "Rupa", :last_name => "Patel", :email => "lavoisier@example.com")
-		# @rupatut = FactoryGirl.create(:sharer, :user => @rupa)
-		@adobps = FactoryGirl.create(:workshop, :sharer_id => 1)
-		@adobau = FactoryGirl.create(:workshop, :description => "Audition", :sharer_id => 2)
-		@anima = FactoryGirl.create(:workshop, :category => "Art", :description => "Animation", :sharer_id => 3)
+		@rupatut = FactoryGirl.create(:sharer, :user => @rupa)
+		@adobps = FactoryGirl.create(:workshop, :sharer => @ryantut)
+		@adobau = FactoryGirl.create(:workshop, :description => "Audition", :sharer => @rupatut)
+		@anima = FactoryGirl.create(:workshop, :category => "Art", :description => "Animation", :sharer => @emantut)
 		@upvryps = FactoryGirl.create(:upvote, :user => @ryan, :workshop => @adobps)
 		@upvrups = FactoryGirl.create(:upvote, :user => @rupa, :workshop => @adobps)
 		@upvryan = FactoryGirl.create(:upvote, :user => @ryan, :workshop => @anima)
@@ -28,10 +29,11 @@ class UpvoteTest < ActiveSupport::TestCase
      # and provide a teardown method as well
     teardown do
 		@ryan.destroy
+		@ryantut.destroy
 		@eman.destroy
-		# @emantut.destroy
+		@emantut.destroy
 		@rupa.destroy
-		# @rupatut.destroy
+		@rupatut.destroy
 		@adobps.destroy
 		@adobau.destroy
 		@anima.destroy

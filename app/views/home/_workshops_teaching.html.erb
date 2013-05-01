@@ -22,8 +22,8 @@
 	<td><%= @workshops_for_sharer.date.strftime("%m/%d") %></td>
 	<td><%= @workshops_for_sharer.subscriptions.size %></td>
 	<td><%= @workshops_for_sharer.location%></td>
- 	<td><%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_workshop_path(@workshops_for_sharer) %></td>
-
+ 	<td>
+ <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_workshop_path(@workshops_for_sharer), :class => 'btn btn-mini' %></td>
  	<td>	<%= link_to raw("<i class='icon-remove icon-white'></i> Delete"), workshop_path(@workshops_for_sharer), :method => "delete", :class => 'btn btn-danger btn-mini' %></td>
 
 

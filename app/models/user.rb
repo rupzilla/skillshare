@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
 	 end
 
       def has_workshop?
+		unless self.sharer.nil?
           sharer_has_workshop = self.sharer.has_workshop?
           
           if sharer_has_workshop.nil?
@@ -46,6 +47,7 @@ class User < ActiveRecord::Base
           else
             return true
           end
+		end
       end
    
       
