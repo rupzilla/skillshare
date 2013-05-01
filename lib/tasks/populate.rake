@@ -91,7 +91,24 @@ namespace :db do
 #	mu.major = "CFA"
     mu.save!
 	
+	      xs = User.new
+    	xs.active = true
+        xs.email = "andy@gmail.com"
+        xs.password = "skillshare"
+        xs.first_name = "Andy"
+        xs.last_name = "Johnson"
+        xs.interests = "Glass-blowing"
+        xs.save!
+  
+  
     #Step 2: Make some Sharers
+
+
+        xsh = Sharer.new
+        xsh.user_id = xs.id
+        xsh.credentials = "Art club, Robotics Club "
+        xsh.major = "Internation Relations"
+        xsh.save!
 
     js = Sharer.new
     js.user_id = bu.id
@@ -135,6 +152,22 @@ namespace :db do
     ms.save!
 
 	#Step 3: Make some Workshops
+
+
+	wsp = Workshop.new
+	wsp.sharer_id = xsh.id
+	wsp.active = true
+	wsp.start_time = "21:30:00"
+	wsp.end_time = "22:30:00"
+	wsp.date = "1993-01-25"
+	wsp.size = "15"
+	wsp.category = "Science"
+	wsp.location = "Baker Hall"
+	wsp.subdescription = "We work hard play hard with chemistry. Learn everything you
+	want with chemistry 2"
+	wsp.description = "Chemistry Lab 2"
+	wsp.save!
+
 
 	ws1 = Workshop.new
 	ws1.sharer_id = js.id

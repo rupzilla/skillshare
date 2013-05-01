@@ -66,6 +66,7 @@
   </tr>
 <% end %>
 </table>
+<%= will_paginate @workshops, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 
 <p><%= link_to raw("Create New Workshop"), new_workshop_path, :class => 'btn btn-small btn-success' %></p>
 

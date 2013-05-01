@@ -8,6 +8,7 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 gem 'simple_form'
 gem 'validates_timeliness', '3.0.8'
+gem 'will_paginate'
 
 # Gems used only in development
 group :development do
