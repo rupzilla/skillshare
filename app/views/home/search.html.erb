@@ -1,6 +1,8 @@
-<div class = "span10">
+<div class = "span8">
+
 <h3>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h3>
 <p class="supertiny">&nbsp;</p>
+<div class="well">
 
 <% unless @sharers.empty? %>
 	<p><em><strong>Tutors matching '<%= @query %>'</strong></em></p>
@@ -22,5 +24,6 @@
 	</ul>
 	<p class="supertiny">&nbsp;</p>
 <% end %>
+</div>
 		
 </div>

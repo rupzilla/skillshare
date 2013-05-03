@@ -28,7 +28,9 @@
   <tr>
    <% if workshop.active == true %>
 	<td>
-		<center><%= workshop.upvotes.size %></center>
+		<center><span class="badge">
+		<%= workshop.upvotes.size %></span>
+		<br><br>
 		<% if current_user.has_workshop? && workshop == current_user.sharer.workshop%>
 		
 		<%else%>
